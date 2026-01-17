@@ -1,0 +1,692 @@
+<!doctype html> 
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovIA Secure — Conseil en cybersécurité</title>
+  <meta name="description" content="NovIA Secure : Analyser. Sensibiliser. Securiser." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#060814; --bg1:#0b1220; --bg2:#0f172a;
+      --text:#f4f7ff; --muted:rgba(244,247,255,.76); --muted2:rgba(244,247,255,.58);
+      --line:rgba(244,247,255,.14); --line2:rgba(244,247,255,.08);
+      --accent:#93c5fd; --accent2:#60a5fa; --good:#34d399;
+      --shadow:0 18px 55px rgba(0,0,0,.38); --shadow2:0 10px 28px rgba(0,0,0,.22);
+      --r24:24px; --r18:18px; --r14:14px; --container:1140px;
+      --ease:cubic-bezier(.2,.85,.2,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 10% -10%, rgba(96,165,250,.22), transparent 60%),
+        radial-gradient(900px 520px at 92% 10%, rgba(147,197,253,.16), transparent 55%),
+        radial-gradient(900px 520px at 70% 85%, rgba(167,139,250,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 55%, var(--bg0) 100%);
+      overflow-x:hidden;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    ::selection{background:rgba(96,165,250,.28)}
+    .container{width:min(var(--container), 92vw); margin:0 auto}
+    .skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto;
+      padding:10px 12px; background:rgba(15,23,42,.92);
+      border:1px solid var(--line); border-radius:12px; z-index:9999;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(6,8,20,.55);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line2);
+    }
+    .topbar__inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand__mark{
+      width:44px; height:44px; border-radius:16px; display:grid; place-items:center;
+      background:
+        radial-gradient(20px 20px at 28% 26%, rgba(147,197,253,.56), transparent 60%),
+        radial-gradient(20px 20px at 72% 72%, rgba(167,139,250,.28), transparent 62%),
+        linear-gradient(135deg, rgba(96,165,250,.28), rgba(147,197,253,.08));
+      border:1px solid rgba(147,197,253,.22);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      font-weight:900; user-select:none;
+      overflow:hidden;
+    }
+    .brand__name{font-weight:900; font-size:14px; letter-spacing:.25px}
+    .brand__tag{font-size:12px; color:var(--muted2); margin-top:2px}
+
+    /* Logo */
+    .brand__logo{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;
+      filter: drop-shadow(0 0 0 rgba(0,0,0,0)) saturate(1.02) contrast(1.04);
+    }
+
+    /* NAV AS BUTTON TABS */
+    .nav{display:flex; align-items:center; gap:10px}
+    .nav__link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13.5px;
+      font-weight:700;
+      transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease), border-color .25s var(--ease);
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .nav__link:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      border-color:rgba(147,197,253,.18);
+      text-decoration:none;
+      transform:translateY(-1px);
+    }
+    .nav__toggle{
+      display:none; width:44px; height:40px; border-radius:14px;
+      background:rgba(255,255,255,.04); border:1px solid var(--line); cursor:pointer;
+    }
+    .nav__toggle span{display:block; width:18px; height:2px; background:var(--text); margin:5px auto; border-radius:999px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid rgba(147,197,253,.26);
+      background:
+        radial-gradient(22px 22px at 28% 22%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(22px 22px at 75% 78%, rgba(167,139,250,.14), transparent 60%),
+        linear-gradient(135deg, rgba(96,165,250,.22), rgba(147,197,253,.08));
+      color:var(--text); font-weight:800;
+      box-shadow:var(--shadow2);
+      transition:transform .22s var(--ease), filter .22s var(--ease), box-shadow .22s var(--ease);
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.05); box-shadow:var(--shadow); text-decoration:none}
+    .btn--ghost{background:rgba(255,255,255,.035); border:1px solid var(--line); box-shadow:none}
+    .btn--small{padding:10px 12px; border-radius:999px; font-size:13.5px}
+
+    /* Hero */
+    .hero{padding:62px 0 18px; position:relative}
+    .hero__grid{display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:stretch; position:relative; z-index:2}
+    .hero h1{
+      font-size:clamp(30px, 3.8vw, 54px);
+      line-height:1.04; margin:0 0 14px; letter-spacing:-0.6px; font-weight:900;
+    }
+    .lead{color:var(--muted); font-size:16.5px; line-height:1.78; margin:0 0 18px; max-width:72ch}
+    .hero__actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      font-size:12px; padding:8px 11px; border-radius:999px;
+      border:1px solid var(--line2); background:rgba(255,255,255,.035); color:var(--muted);
+    }
+
+    .panel{
+      border-radius:var(--r24);
+      border:1px solid var(--line2);
+      background:
+        radial-gradient(600px 300px at 20% 0%, rgba(96,165,250,.14), transparent 60%),
+        radial-gradient(600px 300px at 95% 15%, rgba(167,139,250,.10), transparent 58%),
+        rgba(15,23,42,.58);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:18px;
+    }
+    .panel__top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line2); background:rgba(255,255,255,.03);
+      color:var(--muted); font-size:12px; font-weight:700;
+    }
+    .badge i{width:8px; height:8px; border-radius:999px; background:var(--good); box-shadow:0 0 0 4px rgba(52,211,153,.12); display:inline-block}
+    .kpi{text-align:right; line-height:1.2}
+    .kpi b{display:block; font-weight:900; letter-spacing:-.2px}
+    .kpi span{color:var(--muted2); font-size:12px}
+    .mini-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
+    .mini-card{border-radius:var(--r18); border:1px solid var(--line2); background:rgba(255,255,255,.03); padding:12px}
+    .mini-card b{display:block; font-weight:900; font-size:13px}
+    .mini-card p{margin:4px 0 0; color:var(--muted2); font-size:12.5px; line-height:1.5}
+
+    /* Sections */
+    .section{padding:62px 0; border-top:1px solid rgba(255,255,255,.06); position:relative}
+    .section--alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01))}
+    .section__head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px}
+    .section__head h2{margin:0; font-size:22px; letter-spacing:-.2px; font-weight:900}
+    .sub{margin:0; color:var(--muted); line-height:1.7; max-width:78ch; font-size:14px}
+    .tiny{font-size:12px; color:var(--muted2); line-height:1.6}
+    .grid{display:grid; gap:16px}
+    .grid.two{grid-template-columns:1fr 1fr}
+    .grid.three{grid-template-columns:1fr 1fr 1fr}
+    .card{
+      border-radius:var(--r24);
+      padding:18px;
+      border:1px solid var(--line2);
+      background:
+        radial-gradient(420px 160px at 20% 10%, rgba(147,197,253,.08), transparent 55%),
+        rgba(255,255,255,.035);
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    }
+    .card__title{margin:0 0 10px; font-size:16px; font-weight:900; letter-spacing:-.15px}
+    .muted{color:var(--muted); line-height:1.75}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .list li{margin:6px 0}
+
+    .form{
+      border-radius:var(--r24);
+      padding:18px;
+      border:1px solid var(--line2);
+      background:
+        radial-gradient(420px 180px at 30% 0%, rgba(96,165,250,.12), transparent 55%),
+        rgba(15,23,42,.58);
+      box-shadow:var(--shadow);
+    }
+    label{display:block; margin:12px 0; color:var(--muted2); font-size:13px; font-weight:600}
+    input, textarea{
+      width:100%;
+      margin-top:7px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.035);
+      color:var(--text);
+      outline:none;
+      font-family:inherit;
+      font-size:14px;
+    }
+    input:focus, textarea:focus{
+      border-color:rgba(147,197,253,.30);
+      box-shadow:0 0 0 4px rgba(96,165,250,.14);
+      background:rgba(255,255,255,.05);
+    }
+
+    .footer{padding:32px 0 52px; border-top:1px solid rgba(255,255,255,.06)}
+    .footer__inner{display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; color:var(--muted2); font-size:12.5px}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .65s var(--ease), transform .65s var(--ease)}
+    .reveal.is-visible{opacity:1; transform:translateY(0)}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero__grid{grid-template-columns:1fr}
+      .grid.two{grid-template-columns:1fr}
+      .grid.three{grid-template-columns:1fr}
+      .nav{display:none}
+      .nav.is-open{
+        display:flex; position:absolute; right:4vw; top:64px;
+        flex-direction:column; width:min(360px, 92vw);
+        background:rgba(6,8,20,.96);
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:10px;
+        box-shadow:var(--shadow);
+      }
+      .nav__toggle{display:block}
+      .mini-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">
+          <img class="brand__logo" src="Logo.png" alt="" />
+        </div>
+        <div>
+          <div class="brand__name">NovIA Secure</div>
+          <div class="brand__tag">Conseil en cybersécurité • Audit • Prévention</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav__link" href="#accueil">Accueil</a>
+        <a class="nav__link" href="#contexte">Contexte</a>
+        <a class="nav__link" href="#attaques">Types d’attaques</a>
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#methode">Méthode</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <a class="btn btn--small" href="#contact">Demander un échange</a>
+      </nav>
+
+      <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- HERO -->
+    <section id="accueil" class="hero">
+      <div class="container hero__grid">
+        <div class="reveal">
+          <h1>Sécurité numérique pour les TPE.</h1>
+          <p class="lead">
+            NovIA Secure accompagne des entreprises et des structures publiques sur des sujets d’audit,
+            de prévention et de sensibilisation. Le travail porte sur les outils utilisés au quotidien,
+            les accès, les partages, les sauvegardes, et les procédures internes.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="#services">Voir les services</a>
+            <a class="btn btn--ghost" href="#methode">Consulter la méthode</a>
+          </div>
+
+          <div class="chips" aria-label="Domaines d'intervention">
+            <span class="chip">Audit</span>
+            <span class="chip">Prévention</span>
+            <span class="chip">Sensibilisation</span>
+            <span class="chip">RGPD / NIS2</span>
+          </div>
+        </div>
+
+        <aside class="panel reveal" aria-label="Résumé de l'approche">
+          <div class="panel__top">
+            <span class="badge"><i></i> priorisation • suivi</span>
+            <div class="kpi">
+              <b>Plan d’action</b>
+              <span>actions organisées et suivies</span>
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <b>Diagnostic</b>
+              <p>Cartographie des outils, constats factuels, points d’entrée.</p>
+            </div>
+            <div class="mini-card">
+              <b>Accès</b>
+              <p>Comptes, droits, MFA, pratiques d’administration.</p>
+            </div>
+            <div class="mini-card">
+              <b>Continuité</b>
+              <p>Sauvegardes, restauration, procédures simples.</p>
+            </div>
+            <div class="mini-card">
+              <b>Usages</b>
+              <p>Messagerie, partage, vérification, signalement.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTEXTE -->
+    <section id="contexte" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Contexte</h2>
+            <p class="sub">Risques courants, impacts opérationnels et place des usages.</p>
+          </div>
+          <div class="tiny">exposition • continuité • pratiques</div>
+        </div>
+
+        <div class="grid two">
+          <article class="card reveal">
+            <h3 class="card__title">Risques actuels</h3>
+            <p class="muted">
+              Les incidents les plus fréquents impliquent l’hameçonnage, le vol d’identifiants, la fraude par email,
+              l’indisponibilité liée à un rançongiciel, ou la fuite de données via un compte compromis.
+            </p>
+            <p class="tiny">
+              Les points d’entrée concernent souvent la messagerie, des accès distants, des comptes cloud, et des droits trop larges.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Impacts opérationnels</h3>
+            <p class="muted">
+              Un incident peut entraîner un arrêt partiel de l’activité, des traitements manuels, une perte de données,
+              et une mobilisation de prestataires. Des obligations de notification peuvent s’appliquer selon les données concernées.
+            </p>
+            <p class="tiny">
+              L’enjeu est de réduire la probabilité d’un incident et de limiter les effets lorsqu’il se produit.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Facteur humain</h3>
+            <p class="muted">
+              Les causes sont souvent liées aux usages : validation trop rapide d’une demande, réutilisation de mots de passe,
+              partage non maîtrisé, absence de double vérification, ou contournement de procédure.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Enjeu principal</h3>
+            <p class="muted">
+              Mettre en place des mesures simples, cohérentes et suivies : accès, sauvegardes, mises à jour, règles internes
+              et réflexes partagés par les équipes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPES D’ATTAQUES -->
+    <section id="attaques" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Types d’attaques</h2>
+            <p class="sub">Principaux scénarios rencontrés par les entreprises et structures publiques.</p>
+          </div>
+          <div class="tiny">messagerie • identifiants • disponibilité • données</div>
+        </div>
+
+        <div class="grid three">
+          <article class="card reveal">
+            <h3 class="card__title">Hameçonnage (phishing)</h3>
+            <p class="muted">
+              Emails ou messages visant à obtenir un mot de passe, une validation de paiement, ou l’ouverture d’un lien
+              conduisant à un site frauduleux.
+            </p>
+            <p class="tiny">Point d’entrée fréquent : messagerie et comptes cloud.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Fraude au président / BEC</h3>
+            <p class="muted">
+              Usurpation d’identité (direction, fournisseur) pour demander un virement, un changement d’IBAN,
+              ou une transmission de documents.
+            </p>
+            <p class="tiny">Souvent lié à une compromission de boîte mail ou à de l’ingénierie sociale.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Vol d’identifiants</h3>
+            <p class="muted">
+              Récupération d’identifiants via phishing, fuite externe, réutilisation de mots de passe,
+              ou malware sur un poste.
+            </p>
+            <p class="tiny">Impact : accès non autorisé aux emails, fichiers, applications.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Rançongiciel</h3>
+            <p class="muted">
+              Chiffrement des données et indisponibilité des systèmes, avec demande de rançon.
+              L’attaque combine souvent accès initial, propagation et suppression de sauvegardes.
+            </p>
+            <p class="tiny">Mesure clé : sauvegardes séparées et testées.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Logiciels malveillants</h3>
+            <p class="muted">
+              Infection via pièce jointe, téléchargement ou site compromis. Peut permettre l’exfiltration de données,
+              la prise de contrôle ou l’installation d’autres charges.
+            </p>
+            <p class="tiny">Réduction du risque : mises à jour, droits limités, filtrage.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Exposition de services</h3>
+            <p class="muted">
+              Accès distant ou services publiés (RDP, VPN, portails) mal configurés ou non maintenus,
+              pouvant être exploités par des scans automatisés.
+            </p>
+            <p class="tiny">Contrôles : MFA, durcissement, supervision, mise à jour.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Fuite de données</h3>
+            <p class="muted">
+              Partage non maîtrisé, erreur de destinataire, lien public, droits trop larges,
+              ou exfiltration après compromission.
+            </p>
+            <p class="tiny">Contrôles : classification, partage, revue des droits, journaux.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Attaques par déni de service</h3>
+            <p class="muted">
+              Saturation d’un site ou d’un service en ligne pour le rendre indisponible.
+              Concerne surtout les services exposés et les sites à enjeu.
+            </p>
+            <p class="tiny">Réponse : protection réseau, CDN/WAF, plans de bascule.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Chaîne fournisseur</h3>
+            <p class="muted">
+              Incident provenant d’un prestataire, d’un outil SaaS, ou d’un compte tiers ayant des accès.
+              Les effets dépendent des droits accordés.
+            </p>
+            <p class="tiny">Contrôles : gestion des accès tiers, revue périodique, clauses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Services</h2>
+            <p class="sub">Interventions ciblées, livrables structurés, priorisation des actions.</p>
+          </div>
+          <div class="tiny">audit • prévention • sensibilisation</div>
+        </div>
+
+        <div class="grid two">
+          <article class="card reveal">
+            <h3 class="card__title">Audit de sécurité</h3>
+            <p class="muted">Objectif : obtenir une vue claire de la situation, des points d’entrée et des priorités.</p>
+            <ul class="list">
+              <li>Cartographie des outils et des accès (comptes, droits, MFA, administrateurs)</li>
+              <li>Revue des pratiques de messagerie et de partage</li>
+              <li>Sauvegardes : existence, fréquence, séparation, tests de restauration</li>
+              <li>Hygiène de base : mises à jour, postes, accès distants</li>
+            </ul>
+            <p class="tiny">Livrable : synthèse décisionnelle, constats et plan d’action priorisé.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Prévention et durcissement</h3>
+            <p class="muted">Objectif : réduire les points d’entrée fréquents et stabiliser les pratiques.</p>
+            <ul class="list">
+              <li>Gestion des comptes et des droits (moindre privilège)</li>
+              <li>MFA sur les comptes sensibles</li>
+              <li>Paramètres de messagerie (règles, redirections, alertes)</li>
+              <li>Routines de sauvegarde et tests de restauration</li>
+            </ul>
+            <p class="tiny">Livrable : liste d’actions, paramètres à appliquer, consignes et suivi.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Sensibilisation</h3>
+            <p class="muted">Objectif : réduire les erreurs liées aux situations courantes et clarifier les réflexes.</p>
+            <ul class="list">
+              <li>Reconnaître un email suspect, vérifier une demande, signaler</li>
+              <li>Mots de passe, gestion des identifiants, usages de partage</li>
+              <li>Réflexes en cas de doute : arrêt, vérification, escalade interne</li>
+            </ul>
+            <p class="tiny">Livrable : supports internes, fiches réflexes, recommandations d’usage.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Appui RGPD / NIS2</h3>
+            <p class="muted">Objectif : structurer des pratiques minimales et cohérentes selon le contexte.</p>
+            <ul class="list">
+              <li>Clarification des rôles et des périmètres</li>
+              <li>Inventaire des points sensibles liés aux données</li>
+              <li>Mesures organisationnelles (accès, conservation, incidents)</li>
+              <li>Documentation simple et exploitable</li>
+            </ul>
+            <p class="tiny">Livrable : points à régulariser, actions et priorités.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE -->
+    <section id="methode" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Méthode</h2>
+            <p class="sub">Étapes de travail et objectifs associés.</p>
+          </div>
+          <div class="tiny">cadrage • diagnostic • suivi</div>
+        </div>
+
+        <div class="grid two">
+          <article class="card reveal">
+            <h3 class="card__title">1. Cadrage</h3>
+            <p class="muted">
+              Recueil du contexte : activité, outils, contraintes, incidents passés, organisation et interlocuteurs.
+              Définition du périmètre et des priorités.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">2. Diagnostic</h3>
+            <p class="muted">
+              Constats factuels sur les accès, les pratiques, les configurations, la continuité (sauvegarde/restauration)
+              et les usages courants.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">3. Priorisation</h3>
+            <p class="muted">
+              Classement des actions selon le risque, l’effort, les dépendances et l’impact opérationnel.
+              Séparation entre actions rapides et chantiers structurants.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">4. Mise en œuvre</h3>
+            <p class="muted">
+              Accompagnement à l’application des mesures retenues : configurations, consignes, procédures,
+              coordination avec des prestataires si nécessaire.
+            </p>
+          </article>
+
+          <article class="card reveal" style="grid-column:1/-1">
+            <h3 class="card__title">5. Suivi</h3>
+            <p class="muted">
+              Points réguliers, ajustements et consolidation. Le suivi vise à maintenir les mesures dans le temps
+              et à réduire les retours à des pratiques à risque.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Contact</h2>
+            <p class="sub">Un premier échange sert à cadrer le besoin, le périmètre et les priorités.</p>
+          </div>
+          <div class="tiny">périmètre • outils • urgence</div>
+        </div>
+
+        <div class="grid two">
+          <div class="card reveal">
+            <h3 class="card__title">Informations</h3>
+            <p class="muted">
+              Email : <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a><br/>
+              Téléphone : +33 X XX XX XX XX<br/>
+              Zone : France
+            </p>
+            <p class="tiny">
+              Éléments utiles à préparer : liste des outils (messagerie, stockage, suite bureautique, accès distants),
+              nombre d’utilisateurs, présence du MFA, pratiques de sauvegarde, incidents observés.
+            </p>
+          </div>
+
+          <form class="form reveal" action="mailto:contact@novia-secure.com" method="post" enctype="text/plain">
+            <h3 class="card__title">Message</h3>
+
+            <label>Nom
+              <input name="Nom" type="text" required />
+            </label>
+
+            <label>Email
+              <input name="Email" type="email" required />
+            </label>
+
+            <label>Message
+              <textarea name="Message" rows="6" required></textarea>
+            </label>
+
+            <button class="btn" type="submit">Envoyer</button>
+
+            <p class="tiny" style="margin-top:10px;">Ce formulaire utilise votre client mail (mailto).</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>© <span id="year"></span> NovIA Secure</div>
+        <div><a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      // Mobile menu
+      const toggle = document.querySelector(".nav__toggle");
+      const nav = document.querySelector(".nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+          const open = nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        nav.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => {
+            if (nav.classList.contains("is-open")) {
+              nav.classList.remove("is-open");
+              toggle.setAttribute("aria-expanded", "false");
+            }
+          });
+        });
+      }
+
+      // Year
+      const year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+
+      // Reveal
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("is-visible"); });
+      }, { threshold: 0.08 });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
