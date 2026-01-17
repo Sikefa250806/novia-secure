@@ -1,13 +1,16 @@
-<!doctype html> 
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NovIA Secure — Conseil en cybersécurité</title>
-  <meta name="description" content="NovIA Secure : Analyser. Sensibiliser. Securiser." />
+  <meta name="description" content="NovIA Secure : audit, prévention, sensibilisation — sécurité numérique pour TPE et structures publiques." />
   <meta name="theme-color" content="#0b1220" />
   <meta name="robots" content="index,follow" />
-  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Inter -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -59,12 +62,11 @@
     .brand__mark{
       width:44px; height:44px; border-radius:16px; display:grid; place-items:center;
       background:
-        radial-gradient(20px 20px at 28% 26%, rgba(147,197,253,.56), transparent 60%),
-        radial-gradient(20px 20px at 72% 72%, rgba(167,139,250,.28), transparent 62%),
-        linear-gradient(135deg, rgba(96,165,250,.28), rgba(147,197,253,.08));
-      border:1px solid rgba(147,197,253,.22);
+        radial-gradient(20px 20px at 28% 26%, rgba(147,197,253,.34), transparent 60%),
+        radial-gradient(20px 20px at 72% 72%, rgba(167,139,250,.18), transparent 62%),
+        linear-gradient(135deg, rgba(96,165,250,.18), rgba(147,197,253,.06));
+      border:1px solid rgba(147,197,253,.20);
       box-shadow:0 14px 40px rgba(0,0,0,.25);
-      font-weight:900; user-select:none;
       overflow:hidden;
     }
     .brand__name{font-weight:900; font-size:14px; letter-spacing:.25px}
@@ -76,7 +78,7 @@
       height:100%;
       display:block;
       object-fit:contain;
-      filter: drop-shadow(0 0 0 rgba(0,0,0,0)) saturate(1.02) contrast(1.04);
+      filter:saturate(1.02) contrast(1.06);
     }
 
     /* NAV AS BUTTON TABS */
@@ -114,21 +116,21 @@
       padding:12px 14px; border-radius:14px;
       border:1px solid rgba(147,197,253,.26);
       background:
-        radial-gradient(22px 22px at 28% 22%, rgba(34,211,238,.18), transparent 60%),
-        radial-gradient(22px 22px at 75% 78%, rgba(167,139,250,.14), transparent 60%),
-        linear-gradient(135deg, rgba(96,165,250,.22), rgba(147,197,253,.08));
+        radial-gradient(22px 22px at 28% 22%, rgba(34,211,238,.16), transparent 60%),
+        radial-gradient(22px 22px at 75% 78%, rgba(167,139,250,.12), transparent 60%),
+        linear-gradient(135deg, rgba(96,165,250,.20), rgba(147,197,253,.07));
       color:var(--text); font-weight:800;
       box-shadow:var(--shadow2);
       transition:transform .22s var(--ease), filter .22s var(--ease), box-shadow .22s var(--ease);
       text-decoration:none;
     }
-    .btn:hover{transform:translateY(-1px); filter:brightness(1.05); box-shadow:var(--shadow); text-decoration:none}
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.03); box-shadow:var(--shadow); text-decoration:none}
     .btn--ghost{background:rgba(255,255,255,.035); border:1px solid var(--line); box-shadow:none}
     .btn--small{padding:10px 12px; border-radius:999px; font-size:13.5px}
 
     /* Hero */
     .hero{padding:62px 0 18px; position:relative}
-    .hero__grid{display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:stretch; position:relative; z-index:2}
+    .hero__grid{display:grid; grid-template-columns:1.12fr .88fr; gap:22px; align-items:stretch; position:relative; z-index:2}
     .hero h1{
       font-size:clamp(30px, 3.8vw, 54px);
       line-height:1.04; margin:0 0 14px; letter-spacing:-0.6px; font-weight:900;
@@ -172,8 +174,19 @@
     .section{padding:62px 0; border-top:1px solid rgba(255,255,255,.06); position:relative}
     .section--alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01))}
     .section__head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px}
-    .section__head h2{margin:0; font-size:22px; letter-spacing:-.2px; font-weight:900}
-    .sub{margin:0; color:var(--muted); line-height:1.7; max-width:78ch; font-size:14px}
+    .section__head h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+      font-weight:900;
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(147,197,253,.14);
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
+    }
+    .sub{margin:10px 0 0; color:var(--muted); line-height:1.7; max-width:78ch; font-size:14px}
     .tiny{font-size:12px; color:var(--muted2); line-height:1.6}
     .grid{display:grid; gap:16px}
     .grid.two{grid-template-columns:1fr 1fr}
@@ -191,6 +204,13 @@
     .muted{color:var(--muted); line-height:1.75}
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:6px 0}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--line2); background:rgba(255,255,255,.03);
+      color:var(--muted2); font-size:12px; font-weight:700;
+      margin:0 8px 8px 0;
+    }
 
     .form{
       border-radius:var(--r24);
@@ -265,6 +285,7 @@
 
       <nav class="nav" aria-label="Navigation principale">
         <a class="nav__link" href="#accueil">Accueil</a>
+        <a class="nav__link" href="#cadre">Cadre</a>
         <a class="nav__link" href="#contexte">Contexte</a>
         <a class="nav__link" href="#attaques">Types d’attaques</a>
         <a class="nav__link" href="#services">Services</a>
@@ -280,15 +301,14 @@
   </header>
 
   <main id="contenu">
-    <!-- HERO -->
+    <!-- 1) HERO -->
     <section id="accueil" class="hero">
       <div class="container hero__grid">
         <div class="reveal">
-          <h1>Sécurité numérique pour TPE</h1>
+          <h1>Sécurité numérique pour TPE et structures publiques</h1>
           <p class="lead">
-            NovIA Secure accompagne des entreprises et des structures publiques sur des sujets d’audit,
-            de prévention et de sensibilisation. Le travail porte sur les outils utilisés au quotidien,
-            les accès, les partages, les sauvegardes, et les procédures internes.
+            NovIA Secure intervient sur l’analyse des risques, la prévention opérationnelle et la sensibilisation des équipes.
+            Le travail porte sur les usages réels, les outils du quotidien, les accès, les partages, les sauvegardes et les procédures internes.
           </p>
 
           <div class="hero__actions">
@@ -335,15 +355,55 @@
       </div>
     </section>
 
-    <!-- CONTEXTE -->
+    <!-- 2) CADRE D’INTERVENTION -->
+    <section id="cadre" class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Cadre d’intervention</h2>
+            <p class="sub">Périmètre, limites et objectifs opérationnels.</p>
+          </div>
+          <div class="tiny">périmètre • décisions • suivi</div>
+        </div>
+
+        <div class="grid two">
+          <article class="card reveal">
+            <h3 class="card__title">Ce qui est couvert</h3>
+            <p class="muted">
+              Analyse des risques et des points d’entrée liés aux outils, aux accès, aux partages, aux sauvegardes et aux procédures.
+              La restitution vise une décision claire et une priorisation des actions.
+            </p>
+            <div class="tiny" style="margin-top:10px;">
+              <span class="pill">cartographie des outils</span>
+              <span class="pill">revue des accès</span>
+              <span class="pill">continuité</span>
+              <span class="pill">sensibilisation</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Ce qui n’est pas l’objectif</h3>
+            <p class="muted">
+              Le cadre n’est pas la vente d’outils ni l’infogérance. Il ne s’agit pas d’un centre de supervision 24/7.
+              Si des actions nécessitent des prestataires, le travail porte sur le cadrage, la coordination et la vérification.
+            </p>
+            <p class="tiny" style="margin-top:10px;">
+              L’intervention vise la réduction de l’exposition et l’organisation de mesures maintenues dans le temps.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) CONTEXTE & RISQUES (avec IA) -->
     <section id="contexte" class="section">
       <div class="container">
         <div class="section__head reveal">
           <div>
             <h2>Contexte</h2>
-            <p class="sub">Risques courants, impacts opérationnels et place des usages.</p>
+            <p class="sub">Risques courants, impacts opérationnels, usages et évolutions récentes.</p>
           </div>
-          <div class="tiny">exposition • continuité • pratiques</div>
+          <div class="tiny">exposition • organisation • usages</div>
         </div>
 
         <div class="grid two">
@@ -354,7 +414,7 @@
               l’indisponibilité liée à un rançongiciel, ou la fuite de données via un compte compromis.
             </p>
             <p class="tiny">
-              Les points d’entrée concernent souvent la messagerie, des accès distants, des comptes cloud, et des droits trop larges.
+              Points d’entrée courants : messagerie, accès distants, comptes cloud, droits trop larges.
             </p>
           </article>
 
@@ -365,7 +425,7 @@
               et une mobilisation de prestataires. Des obligations de notification peuvent s’appliquer selon les données concernées.
             </p>
             <p class="tiny">
-              L’enjeu est de réduire la probabilité d’un incident et de limiter les effets lorsqu’il se produit.
+              L’objectif est de réduire la probabilité d’un incident et d’en limiter les effets.
             </p>
           </article>
 
@@ -378,17 +438,21 @@
           </article>
 
           <article class="card reveal">
-            <h3 class="card__title">Enjeu principal</h3>
+            <h3 class="card__title">Évolution des usages (outils d’assistance)</h3>
             <p class="muted">
-              Mettre en place des mesures simples, cohérentes et suivies : accès, sauvegardes, mises à jour, règles internes
-              et réflexes partagés par les équipes.
+              L’usage d’outils d’assistance à la rédaction et à l’analyse modifie les pratiques quotidiennes.
+              Ils peuvent faciliter certaines tâches, mais ils augmentent aussi les risques liés au partage de données,
+              à la validation de demandes et à la crédibilité des messages reçus.
+            </p>
+            <p class="tiny">
+              Les mesures de prévention doivent intégrer ces usages réels, sans supposer une maîtrise technique avancée des utilisateurs.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- TYPES D’ATTAQUES -->
+    <!-- 4) TYPES D’ATTAQUES -->
     <section id="attaques" class="section section--alt">
       <div class="container">
         <div class="section__head reveal">
@@ -402,97 +466,70 @@
         <div class="grid three">
           <article class="card reveal">
             <h3 class="card__title">Hameçonnage (phishing)</h3>
-            <p class="muted">
-              Emails ou messages visant à obtenir un mot de passe, une validation de paiement, ou l’ouverture d’un lien
-              conduisant à un site frauduleux.
-            </p>
+            <p class="muted">Messages visant à obtenir un mot de passe, une validation de paiement, ou l’ouverture d’un lien vers un site frauduleux.</p>
             <p class="tiny">Point d’entrée fréquent : messagerie et comptes cloud.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Fraude au président / BEC</h3>
-            <p class="muted">
-              Usurpation d’identité (direction, fournisseur) pour demander un virement, un changement d’IBAN,
-              ou une transmission de documents.
-            </p>
+            <p class="muted">Usurpation d’identité pour demander un virement, un changement d’IBAN, ou une transmission de documents.</p>
             <p class="tiny">Souvent lié à une compromission de boîte mail ou à de l’ingénierie sociale.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Vol d’identifiants</h3>
-            <p class="muted">
-              Récupération d’identifiants via phishing, fuite externe, réutilisation de mots de passe,
-              ou malware sur un poste.
-            </p>
+            <p class="muted">Récupération d’identifiants via phishing, fuite externe, réutilisation de mots de passe, ou malware sur un poste.</p>
             <p class="tiny">Impact : accès non autorisé aux emails, fichiers, applications.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Rançongiciel</h3>
-            <p class="muted">
-              Chiffrement des données et indisponibilité des systèmes, avec demande de rançon.
-              L’attaque combine souvent accès initial, propagation et suppression de sauvegardes.
-            </p>
-            <p class="tiny">Mesure clé : sauvegardes séparées et testées.</p>
+            <p class="muted">Chiffrement des données et indisponibilité des systèmes, avec demande de rançon. L’attaque combine accès initial et propagation.</p>
+            <p class="tiny">Mesure structurante : sauvegardes séparées et testées.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Logiciels malveillants</h3>
-            <p class="muted">
-              Infection via pièce jointe, téléchargement ou site compromis. Peut permettre l’exfiltration de données,
-              la prise de contrôle ou l’installation d’autres charges.
-            </p>
+            <p class="muted">Infection via pièce jointe, téléchargement ou site compromis. Peut permettre l’exfiltration de données ou la prise de contrôle.</p>
             <p class="tiny">Réduction du risque : mises à jour, droits limités, filtrage.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Exposition de services</h3>
-            <p class="muted">
-              Accès distant ou services publiés (RDP, VPN, portails) mal configurés ou non maintenus,
-              pouvant être exploités par des scans automatisés.
-            </p>
+            <p class="muted">Services publiés (RDP, VPN, portails) mal configurés ou non maintenus, exploitables via scans automatisés.</p>
             <p class="tiny">Contrôles : MFA, durcissement, supervision, mise à jour.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Fuite de données</h3>
-            <p class="muted">
-              Partage non maîtrisé, erreur de destinataire, lien public, droits trop larges,
-              ou exfiltration après compromission.
-            </p>
-            <p class="tiny">Contrôles : classification, partage, revue des droits, journaux.</p>
+            <p class="muted">Partage non maîtrisé, erreur de destinataire, lien public, droits trop larges, ou exfiltration après compromission.</p>
+            <p class="tiny">Contrôles : règles de partage, revue des droits, journaux.</p>
           </article>
 
           <article class="card reveal">
-            <h3 class="card__title">Attaques par déni de service</h3>
-            <p class="muted">
-              Saturation d’un site ou d’un service en ligne pour le rendre indisponible.
-              Concerne surtout les services exposés et les sites à enjeu.
-            </p>
-            <p class="tiny">Réponse : protection réseau, CDN/WAF, plans de bascule.</p>
+            <h3 class="card__title">Déni de service</h3>
+            <p class="muted">Saturation d’un site ou d’un service en ligne pour le rendre indisponible, surtout sur des services exposés.</p>
+            <p class="tiny">Réponse : protections réseau, CDN/WAF, plans de bascule.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Chaîne fournisseur</h3>
-            <p class="muted">
-              Incident provenant d’un prestataire, d’un outil SaaS, ou d’un compte tiers ayant des accès.
-              Les effets dépendent des droits accordés.
-            </p>
-            <p class="tiny">Contrôles : gestion des accès tiers, revue périodique, clauses.</p>
+            <p class="muted">Incident provenant d’un prestataire, d’un outil SaaS, ou d’un compte tiers disposant d’accès.</p>
+            <p class="tiny">Contrôles : gestion des accès tiers, revues périodiques, clauses.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="section section--alt">
+    <!-- 5) SERVICES (orientés livrables) -->
+    <section id="services" class="section">
       <div class="container">
         <div class="section__head reveal">
           <div>
             <h2>Services</h2>
             <p class="sub">Interventions ciblées, livrables structurés, priorisation des actions.</p>
           </div>
-          <div class="tiny">audit • prévention • sensibilisation</div>
+          <div class="tiny">périmètre • livrables • suivi</div>
         </div>
 
         <div class="grid two">
@@ -505,7 +542,7 @@
               <li>Sauvegardes : existence, fréquence, séparation, tests de restauration</li>
               <li>Hygiène de base : mises à jour, postes, accès distants</li>
             </ul>
-            <p class="tiny">Livrable : synthèse décisionnelle, constats et plan d’action priorisé.</p>
+            <p class="tiny"><b>Livrables :</b> synthèse décisionnelle, constats factuels, matrice de risques, plan d’action priorisé.</p>
           </article>
 
           <article class="card reveal">
@@ -517,18 +554,19 @@
               <li>Paramètres de messagerie (règles, redirections, alertes)</li>
               <li>Routines de sauvegarde et tests de restauration</li>
             </ul>
-            <p class="tiny">Livrable : liste d’actions, paramètres à appliquer, consignes et suivi.</p>
+            <p class="tiny"><b>Livrables :</b> liste d’actions, paramètres à appliquer, consignes internes, suivi des corrections.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Sensibilisation</h3>
             <p class="muted">Objectif : réduire les erreurs liées aux situations courantes et clarifier les réflexes.</p>
             <ul class="list">
-              <li>Reconnaître un email suspect, vérifier une demande, signaler</li>
+              <li>Reconnaître un message suspect, vérifier une demande, signaler</li>
               <li>Mots de passe, gestion des identifiants, usages de partage</li>
               <li>Réflexes en cas de doute : arrêt, vérification, escalade interne</li>
+              <li>Usages d’outils d’assistance : limites de partage et données à éviter</li>
             </ul>
-            <p class="tiny">Livrable : supports internes, fiches réflexes, recommandations d’usage.</p>
+            <p class="tiny"><b>Livrables :</b> supports, fiches réflexes, procédures de validation, règles de base.</p>
           </article>
 
           <article class="card reveal">
@@ -540,19 +578,19 @@
               <li>Mesures organisationnelles (accès, conservation, incidents)</li>
               <li>Documentation simple et exploitable</li>
             </ul>
-            <p class="tiny">Livrable : points à régulariser, actions et priorités.</p>
+            <p class="tiny"><b>Livrables :</b> points à régulariser, actions et priorités, éléments de documentation.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- METHODE -->
-    <section id="methode" class="section">
+    <!-- 6) MÉTHODE -->
+    <section id="methode" class="section section--alt">
       <div class="container">
         <div class="section__head reveal">
           <div>
             <h2>Méthode</h2>
-            <p class="sub">Étapes de travail et objectifs associés.</p>
+            <p class="sub">Étapes de travail et objectifs associés. Chaque étape vise une décision claire, priorisée et applicable.</p>
           </div>
           <div class="tiny">cadrage • diagnostic • suivi</div>
         </div>
@@ -585,7 +623,7 @@
           <article class="card reveal">
             <h3 class="card__title">4. Mise en œuvre</h3>
             <p class="muted">
-              Accompagnement à l’application des mesures retenues : configurations, consignes, procédures,
+              Application des mesures retenues : configurations, consignes, procédures,
               coordination avec des prestataires si nécessaire.
             </p>
           </article>
@@ -601,15 +639,15 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section section--alt">
+    <!-- 7) CONTACT -->
+    <section id="contact" class="section">
       <div class="container">
         <div class="section__head reveal">
           <div>
             <h2>Contact</h2>
             <p class="sub">Un premier échange sert à cadrer le besoin, le périmètre et les priorités.</p>
           </div>
-          <div class="tiny">périmètre • outils • urgence</div>
+          <div class="tiny">périmètre • outils • priorité</div>
         </div>
 
         <div class="grid two">
@@ -620,30 +658,38 @@
               Téléphone : +33 X XX XX XX XX<br/>
               Zone : France
             </p>
-            <p class="tiny">
-              Éléments utiles à préparer : liste des outils (messagerie, stockage, suite bureautique, accès distants),
-              nombre d’utilisateurs, présence du MFA, pratiques de sauvegarde, incidents observés.
+            <p class="tiny" style="margin-top:10px;">
+              Éléments utiles : liste des outils (messagerie, stockage, suite bureautique, accès distants), nombre d’utilisateurs,
+              présence du MFA, pratiques de sauvegarde, incidents observés.
             </p>
           </div>
 
-          <form class="form reveal" action="mailto:contact@novia-secure.com" method="post" enctype="text/plain">
+          <!-- Formulaire: remplace l'URL Formspree par ton endpoint (Formspree / Netlify Forms / autre).
+               Pour Formspree: https://formspree.io/f/XXXXXXX -->
+          <form class="form reveal" action="https://formspree.io/f/your-id" method="POST">
             <h3 class="card__title">Message</h3>
 
             <label>Nom
-              <input name="Nom" type="text" required />
+              <input name="nom" type="text" autocomplete="name" required />
             </label>
 
             <label>Email
-              <input name="Email" type="email" required />
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+
+            <label>Organisation (optionnel)
+              <input name="organisation" type="text" autocomplete="organization" />
             </label>
 
             <label>Message
-              <textarea name="Message" rows="6" required></textarea>
+              <textarea name="message" rows="6" required></textarea>
             </label>
 
             <button class="btn" type="submit">Envoyer</button>
 
-            <p class="tiny" style="margin-top:10px;">Ce formulaire utilise votre client mail (mailto).</p>
+            <p class="tiny" style="margin-top:10px;">
+              Si tu n’utilises pas de service de formulaire, tu peux remplacer ce bloc par un lien mailto.
+            </p>
           </form>
         </div>
       </div>
