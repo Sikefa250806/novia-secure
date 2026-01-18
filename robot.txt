@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://novia-secure.com/sitemap.xml
