@@ -105,6 +105,20 @@
       text-decoration:none;
       transform:translateY(-1px);
     }
+
+    /* highlighted nav tab (Test de maturité) */
+    .nav__link--highlight{
+      background:rgba(96,165,250,.14);
+      border-color:rgba(147,197,253,.26);
+      color:rgba(244,247,255,.92);
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
+    }
+    .nav__link--highlight:hover{
+      background:rgba(96,165,250,.20);
+      border-color:rgba(147,197,253,.34);
+      color:var(--text);
+    }
+
     .nav__toggle{
       display:none; width:44px; height:40px; border-radius:14px;
       background:rgba(255,255,255,.04); border:1px solid var(--line); cursor:pointer;
@@ -247,6 +261,28 @@
     .reveal{opacity:0; transform:translateY(10px); transition:opacity .65s var(--ease), transform .65s var(--ease)}
     .reveal.is-visible{opacity:1; transform:translateY(0)}
 
+    /* Maturity quiz */
+    .q{margin-top:12px; padding:12px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.02)}
+    .q__title{font-weight:800; font-size:13.5px; color:var(--text); line-height:1.45}
+    .q__choices{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .choice{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:12.5px;
+      font-weight:700;
+      cursor:pointer;
+      user-select:none;
+    }
+    .choice input{width:auto; margin:0}
+    .choice:has(input:checked){
+      color:var(--text);
+      border-color:rgba(147,197,253,.24);
+      background:rgba(96,165,250,.08);
+    }
+
     /* Mobile */
     @media (max-width: 980px){
       .hero__grid{grid-template-columns:1fr}
@@ -264,6 +300,8 @@
       }
       .nav__toggle{display:block}
       .mini-grid{grid-template-columns:1fr}
+      .q__choices{flex-direction:column; align-items:flex-start}
+      .choice{width:100%; justify-content:flex-start}
     }
   </style>
 </head>
@@ -290,8 +328,8 @@
         <a class="nav__link" href="#attaques">Types d’attaques</a>
         <a class="nav__link" href="#services">Services</a>
         <a class="nav__link" href="#methode">Méthode</a>
+        <a class="nav__link nav__link--highlight" href="#maturite">Test de maturité cyber</a>
         <a class="nav__link" href="#contact">Contact</a>
-        <a class="btn btn--small" href="#contact">Demander un échange</a>
       </nav>
 
       <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -618,6 +656,243 @@
       </div>
     </section>
 
+    <!-- 6bis) TEST DE MATURITÉ CYBER -->
+    <section id="maturite" class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <h2>Test de maturité cyber</h2>
+            <p class="sub">
+              Questionnaire structuré (identités, postes, sauvegardes, messagerie, accès distants, gouvernance).
+              Résultat immédiat avec recommandations.
+            </p>
+          </div>
+          <div class="tiny">score • niveau • recommandations</div>
+        </div>
+
+        <div class="grid two">
+          <form id="maturityForm" class="form reveal" autocomplete="off">
+            <h3 class="card__title">Questionnaire</h3>
+
+            <p class="tiny" style="margin-top:6px">
+              Répondre selon la situation réelle. “Partiel” = en place mais incomplet / non généralisé / non vérifié.
+            </p>
+
+            <label>Organisation
+              <input name="org" type="text" placeholder="Nom de l’organisation (optionnel)" />
+            </label>
+
+            <label>Nombre d’utilisateurs
+              <input name="users" type="number" min="1" placeholder="ex : 12 (optionnel)" />
+            </label>
+
+            <div class="tiny" style="margin-top:8px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Identités & Accès</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">1) MFA (double authentification) sur messagerie et comptes administrateurs</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q1" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q1" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q1" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">2) Mots de passe : gestionnaire + règles (réutilisation, partage, complexité)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q2" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q2" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q2" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">3) Comptes partagés / comptes génériques</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q3" value="0" required> Majoritaires / non maîtrisés</label>
+                <label class="choice"><input type="radio" name="q3" value="2"> Quelques-uns</label>
+                <label class="choice"><input type="radio" name="q3" value="4"> Rare / maîtrisé</label>
+              </div>
+            </div>
+
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Postes & Mises à jour</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">4) Postes à jour (OS + logiciels) avec routine claire</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q4" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q4" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q4" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">5) Antivirus/EDR et protections (au minimum Defender configuré)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q5" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q5" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q5" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Sauvegardes & Continuité</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">6) Sauvegardes : fréquence + séparation (3-2-1 ou équivalent)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q6" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q6" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q6" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">7) Tests de restauration (au moins semestriels)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q7" value="0" required> Jamais</label>
+                <label class="choice"><input type="radio" name="q7" value="2"> Rarement</label>
+                <label class="choice"><input type="radio" name="q7" value="4"> Régulièrement</label>
+              </div>
+            </div>
+
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Messagerie & Fraudes</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">8) Protection anti-phishing (SPF/DKIM/DMARC, filtrage, alertes, bannières externe)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q8" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q8" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q8" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">9) Procédure “double validation” (paiements / changement IBAN / demandes urgentes)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q9" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q9" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q9" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Accès distants & Cloud</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q10" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q10" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q10" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q11" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q11" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q11" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
+              <b>Gouvernance & Réaction</b>
+            </div>
+
+            <div class="q">
+              <div class="q__title">12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q12" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q12" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q12" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">13) Inventaire minimal : outils, admins, prestataires, données sensibles</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q13" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q13" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q13" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="q">
+              <div class="q__title">14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)</div>
+              <div class="q__choices">
+                <label class="choice"><input type="radio" name="q14" value="0" required> Non</label>
+                <label class="choice"><input type="radio" name="q14" value="2"> Partiel</label>
+                <label class="choice"><input type="radio" name="q14" value="4"> Oui</label>
+              </div>
+            </div>
+
+            <div class="hero__actions" style="margin-top:14px">
+              <button class="btn" type="submit">Calculer le score</button>
+              <button class="btn btn--ghost" type="button" id="maturityReset">Réinitialiser</button>
+            </div>
+
+            <p class="tiny" style="margin-top:10px;">
+              Ce test donne une indication de maturité (pas un audit). Les résultats servent à prioriser des actions.
+            </p>
+          </form>
+
+          <aside class="card reveal" aria-live="polite">
+            <h3 class="card__title">Résultat</h3>
+
+            <div id="maturityEmpty" class="muted">
+              Remplis le questionnaire puis clique sur “Calculer le score”.
+            </div>
+
+            <div id="maturityResult" style="display:none;">
+              <div class="badge" style="margin-bottom:10px;">
+                <i></i><span id="maturityLevel">—</span>
+              </div>
+
+              <div class="mini-grid" style="margin-top:0;">
+                <div class="mini-card">
+                  <b>Score</b>
+                  <p><span id="maturityScore">0</span> / <span id="maturityMax">56</span></p>
+                </div>
+                <div class="mini-card">
+                  <b>Priorité</b>
+                  <p id="maturityPriority">—</p>
+                </div>
+              </div>
+
+              <div style="margin-top:14px;">
+                <b style="display:block; font-weight:900; margin-bottom:8px;">Recommandations immédiates</b>
+                <ul class="list" id="maturityRecs"></ul>
+              </div>
+
+              <div class="form" style="margin-top:16px;">
+                <h3 class="card__title">Recevoir le résultat</h3>
+                <p class="tiny" style="margin-top:6px;">
+                  Envoi du score + recommandations via Formspree (remplace l’URL par ton endpoint).
+                </p>
+
+                <label>Email de contact
+                  <input id="maturityEmail" type="email" placeholder="nom@entreprise.com" />
+                </label>
+
+                <button class="btn" type="button" id="maturitySend">Envoyer le résultat</button>
+                <p class="tiny" id="maturitySendStatus" style="margin-top:10px;"></p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <!-- 7) CONTACT -->
     <section id="contact" class="section">
       <div class="container">
@@ -643,8 +918,6 @@
             </p>
           </div>
 
-          <!-- Formulaire: remplace l'URL Formspree par ton endpoint (Formspree / Netlify Forms / autre).
-               Pour Formspree: https://formspree.io/f/xzddekwq -->
           <form class="form reveal" action="https://formspree.io/f/xzddekwq" method="POST">
             <h3 class="card__title">Message</h3>
 
@@ -712,11 +985,153 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("is-visible"); });
       }, { threshold: 0.08 });
       els.forEach(el => io.observe(el));
+
+      // === MATURITY QUIZ LOGIC ===
+      const form = document.getElementById("maturityForm");
+      const empty = document.getElementById("maturityEmpty");
+      const resBox = document.getElementById("maturityResult");
+      const levelEl = document.getElementById("maturityLevel");
+      const scoreEl = document.getElementById("maturityScore");
+      const maxEl = document.getElementById("maturityMax");
+      const priorityEl = document.getElementById("maturityPriority");
+      const recsEl = document.getElementById("maturityRecs");
+      const resetBtn = document.getElementById("maturityReset");
+
+      const emailInput = document.getElementById("maturityEmail");
+      const sendBtn = document.getElementById("maturitySend");
+      const sendStatus = document.getElementById("maturitySendStatus");
+
+      const MAX = 14 * 4; // 14 questions, 0/2/4
+      if (maxEl) maxEl.textContent = String(MAX);
+
+      function levelFor(scorePct){
+        if (scorePct < 30) return { name: "Niveau 1 — Initial", priority: "Urgent (fondations)" };
+        if (scorePct < 55) return { name: "Niveau 2 — Basique", priority: "Élevée (standardiser)" };
+        if (scorePct < 75) return { name: "Niveau 3 — Intermédiaire", priority: "Modérée (consolider)" };
+        return { name: "Niveau 4 — Avancé", priority: "Optimisation (durcir)" };
+      }
+
+      function recsFromAnswers(values){
+        const recs = [];
+        const v = (k) => Number(values.get(k) || 0);
+
+        if (v("q1") < 4) recs.push("Activer le MFA sur la messagerie et tous les comptes administrateurs (priorité).");
+        if (v("q2") < 4) recs.push("Déployer un gestionnaire de mots de passe et interdire la réutilisation/partage.");
+        if (v("q3") < 4) recs.push("Réduire les comptes partagés : privilégier des comptes nominatifs + boîtes partagées.");
+        if (v("q4") < 4) recs.push("Mettre en place une routine de mises à jour (OS + logiciels) et vérifier l’application.");
+        if (v("q5") < 4) recs.push("Vérifier la protection endpoint (Defender/EDR) et durcir les paramètres.");
+        if (v("q6") < 4) recs.push("Structurer des sauvegardes séparées (3-2-1) avec copie hors ligne/immutabilité.");
+        if (v("q7") < 4) recs.push("Tester la restauration (fichiers + applis critiques) et consigner les résultats.");
+        if (v("q8") < 4) recs.push("Renforcer la messagerie : SPF/DKIM/DMARC + règles anti-phishing + alertes.");
+        if (v("q9") < 4) recs.push("Instaurer une double validation pour paiements / changement d’IBAN / urgences.");
+        if (v("q10") < 4) recs.push("Sécuriser l’accès distant : MFA, restrictions IP, comptes dédiés, logs.");
+        if (v("q11") < 4) recs.push("Revoir les partages cloud : limiter les liens publics et auditer les invités.");
+        if (v("q12") < 4) recs.push("Formaliser un plan incident simple (qui fait quoi, contacts, isolement, preuves).");
+        if (v("q13") < 4) recs.push("Créer un inventaire minimal (outils, admins, prestataires, données sensibles).");
+        if (v("q14") < 4) recs.push("Planifier une sensibilisation annuelle + rappels (phishing, fraude, IA, partage).");
+
+        if (recs.length === 0) {
+          recs.push("Bon niveau global : réaliser une revue trimestrielle des accès/admins et un test phishing interne.");
+          recs.push("Optimiser la supervision : journaux clés, alertes, revue des règles de messagerie.");
+        }
+        return recs;
+      }
+
+      function renderResult(score, recs){
+        const pct = Math.round((score / MAX) * 100);
+        const lvl = levelFor(pct);
+
+        if (empty) empty.style.display = "none";
+        if (resBox) resBox.style.display = "block";
+
+        if (levelEl) levelEl.textContent = `${lvl.name} (${pct}%)`;
+        if (scoreEl) scoreEl.textContent = String(score);
+        if (priorityEl) priorityEl.textContent = lvl.priority;
+
+        if (recsEl) {
+          recsEl.innerHTML = "";
+          recs.forEach(r => {
+            const li = document.createElement("li");
+            li.textContent = r;
+            recsEl.appendChild(li);
+          });
+        }
+      }
+
+      function compute(){
+        const values = new FormData(form);
+        let score = 0;
+        for (let i = 1; i <= 14; i++){
+          score += Number(values.get("q"+i) || 0);
+        }
+        const recs = recsFromAnswers(values);
+        renderResult(score, recs);
+        return { score, recs, values };
+      }
+
+      if (form) {
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          compute();
+          const target = document.getElementById("maturityResult");
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+
+      if (resetBtn && form) {
+        resetBtn.addEventListener("click", () => {
+          form.reset();
+          if (empty) empty.style.display = "block";
+          if (resBox) resBox.style.display = "none";
+          if (sendStatus) sendStatus.textContent = "";
+        });
+      }
+
+      // Send to Formspree (replace ENDPOINT if needed)
+      const ENDPOINT = "https://formspree.io/f/xzddekwq";
+
+      async function sendResult(){
+        if (!form) return;
+        const { score, recs, values } = compute();
+
+        const org = String(values.get("org") || "").trim();
+        const users = String(values.get("users") || "").trim();
+        const email = (emailInput?.value || "").trim();
+
+        if (!email) {
+          if (sendStatus) sendStatus.textContent = "Merci de saisir un email avant l’envoi.";
+          return;
+        }
+
+        const payload = {
+          type: "maturity_test",
+          organisation: org || "(non renseignée)",
+          users: users || "(non renseigné)",
+          contact_email: email,
+          score: `${score}/${MAX}`,
+          recommendations: recs.join(" | "),
+          date: new Date().toISOString(),
+        };
+
+        try{
+          if (sendStatus) sendStatus.textContent = "Envoi en cours…";
+          const r = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (r.ok) {
+            if (sendStatus) sendStatus.textContent = "Résultat envoyé ✅";
+          } else {
+            if (sendStatus) sendStatus.textContent = "Erreur d’envoi (endpoint/Formspree).";
+          }
+        } catch(err){
+          if (sendStatus) sendStatus.textContent = "Erreur réseau lors de l’envoi.";
+        }
+      }
+
+      if (sendBtn) sendBtn.addEventListener("click", sendResult);
     })();
   </script>
 </body>
 </html>
-
-
-
-
