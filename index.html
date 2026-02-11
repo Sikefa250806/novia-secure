@@ -1034,6 +1034,7 @@
           recs.push("Bon niveau global : réaliser une revue trimestrielle des accès/admins et un test phishing interne.");
           recs.push("Optimiser la supervision : journaux clés, alertes, revue des règles de messagerie.");
         }
+
         return recs;
       }
 
@@ -1073,6 +1074,7 @@
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           compute();
+          // scroll vers résultat sur mobile
           const target = document.getElementById("maturityResult");
           if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
@@ -1087,8 +1089,8 @@
         });
       }
 
-      // Send to Formspree (replace ENDPOINT if needed)
-      const ENDPOINT = "https://formspree.io/f/xzddekwq";
+      // Send to Formspree (replace ENDPOINT)
+      const ENDPOINT = "https://formspree.io/f/xzddekwq"; // <-- remplace par TON endpoint dédié si tu veux
 
       async function sendResult(){
         if (!form) return;
@@ -1103,6 +1105,50 @@
           return;
         }
 
+        // --- CAPTURE DE TOUTES LES RÉPONSES (Q1→Q14) ---
+        const labels = {
+          q1: "1) MFA (double authentification) sur messagerie et comptes administrateurs",
+          q2: "2) Mots de passe : gestionnaire + règles (réutilisation, partage, complexité)",
+          q3: "3) Comptes partagés / comptes génériques",
+          q4: "4) Postes à jour (OS + logiciels) avec routine claire",
+          q5: "5) Antivirus/EDR et protections (au minimum Defender configuré)",
+          q6: "6) Sauvegardes : fréquence + séparation (3-2-1 ou équivalent)",
+          q7: "7) Tests de restauration (au moins semestriels)",
+          q8: "8) Protection anti-phishing (SPF/DKIM/DMARC, filtrage, alertes, bannières externe)",
+          q9: "9) Procédure “double validation” (paiements / changement IBAN / demandes urgentes)",
+          q10:"10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)",
+          q11:"11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits",
+          q12:"12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves",
+          q13:"13) Inventaire minimal : outils, admins, prestataires, données sensibles",
+          q14:"14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)"
+        };
+
+        const mapValue = (q, val) => {
+          const n = Number(val || 0);
+          if (q === "q3") {
+            if (n === 0) return "Majoritaires / non maîtrisés (0)";
+            if (n === 2) return "Quelques-uns (2)";
+            return "Rare / maîtrisé (4)";
+          }
+          if (q === "q7") {
+            if (n === 0) return "Jamais (0)";
+            if (n === 2) return "Rarement (2)";
+            return "Régulièrement (4)";
+          }
+          return n === 0 ? "Non (0)" : (n === 2 ? "Partiel (2)" : "Oui (4)");
+        };
+
+        const answers = {};
+        let answersText = "";
+        for (let i = 1; i <= 14; i++) {
+          const key = "q" + i;
+          const raw = values.get(key);
+          const pretty = mapValue(key, raw);
+          answers[key] = { label: labels[key], raw: raw ?? null, value: pretty };
+          answersText += `${labels[key]} : ${pretty}\n`;
+        }
+        // --- FIN CAPTURE ---
+
         const payload = {
           type: "maturity_test",
           organisation: org || "(non renseignée)",
@@ -1110,6 +1156,8 @@
           contact_email: email,
           score: `${score}/${MAX}`,
           recommendations: recs.join(" | "),
+          answers: answers,
+          answers_text: answersText,
           date: new Date().toISOString(),
         };
 
