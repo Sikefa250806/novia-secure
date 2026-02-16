@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Politique de confidentialité — NovIA Secure</title>
+  <meta name="description" content="Politique de confidentialité (RGPD) du site NovIA Secure." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg0:#060814; --bg1:#0b1220;
+      --text:#f4f7ff; --muted:rgba(244,247,255,.76); --muted2:rgba(244,247,255,.58);
+      --line2:rgba(244,247,255,.08); --accent:#93c5fd;
+      --shadow2:0 10px 28px rgba(0,0,0,.22);
+      --r24:24px; --container:1140px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 10% -10%, rgba(96,165,250,.22), transparent 60%),
+        radial-gradient(900px 520px at 92% 10%, rgba(147,197,253,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 55%, var(--bg0) 100%);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(var(--container), 92vw); margin:0 auto}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(6,8,20,.55);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line2);
+    }
+    .topbar__inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand__mark{
+      width:44px; height:44px; border-radius:16px; display:grid; place-items:center;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(147,197,253,.20);
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .brand__logo{width:100%; height:100%; object-fit:contain}
+    .brand__name{font-weight:900; font-size:14px}
+    .brand__tag{font-size:12px; color:var(--muted2); margin-top:2px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid rgba(147,197,253,.26);
+      background:rgba(255,255,255,.035);
+      color:var(--text); font-weight:800;
+      text-decoration:none;
+    }
+    main{padding:34px 0 60px}
+    .card{
+      border-radius:var(--r24);
+      padding:18px;
+      border:1px solid rgba(244,247,255,.08);
+      background:rgba(255,255,255,.035);
+      box-shadow:var(--shadow2);
+    }
+    h1{margin:0 0 10px; font-size:26px}
+    h2{margin:18px 0 8px; font-size:16px}
+    p, li{color:var(--muted); line-height:1.75; font-size:14px}
+    ul{margin:8px 0 0; padding-left:18px}
+    .tiny{color:var(--muted2); font-size:12.5px; line-height:1.65}
+    .pill{
+      display:inline-flex; align-items:center;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(244,247,255,.10);
+      background:rgba(255,255,255,.03);
+      color:var(--muted2); font-size:12px; font-weight:700;
+      margin:0 8px 8px 0;
+    }
+    .footer{padding:28px 0 46px; border-top:1px solid rgba(255,255,255,.06)}
+    .footer__inner{display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; color:var(--muted2); font-size:12.5px}
+    .hr{height:1px; background:rgba(255,255,255,.06); margin:14px 0}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">
+          <img class="brand__logo" src="Logo.png" alt="" />
+        </div>
+        <div>
+          <div class="brand__name">NovIA Secure</div>
+          <div class="brand__tag">Politique de confidentialité</div>
+        </div>
+      </div>
+
+      <a class="btn" href="/index.html">← Retour au site</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Politique de confidentialité (RGPD)</h1>
+      <p class="tiny">Dernière mise à jour : <span id="lastUpdate"></span></p>
+
+      <div class="hr"></div>
+
+      <h2>Responsable de traitement</h2>
+      <p>
+        Le responsable de traitement des données collectées via ce site est :
+      </p>
+      <ul>
+        <li><b>Nom / Raison sociale :</b> [NovIA Secure / Nom de la structure]</li>
+        <li><b>Adresse :</b> [Adresse postale complète]</li>
+        <li><b>Contact :</b> <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a></li>
+      </ul>
+
+      <h2>Données collectées</h2>
+      <p>Nous collectons uniquement les données nécessaires selon les formulaires utilisés :</p>
+      <p>
+        <span class="pill">Formulaire contact</span>
+        <span class="pill">Envoi résultat tests</span>
+      </p>
+      <ul>
+        <li><b>Formulaire de contact :</b> nom, email, organisation (optionnel), message.</li>
+        <li><b>Envoi résultat “Test de maturité / souveraineté” :</b> email, organisation (optionnel), périmètre (optionnel), score, recommandations et réponses au questionnaire.</li>
+        <li><b>Données techniques :</b> logs techniques de base (hébergeur) nécessaires à la sécurité et au fonctionnement.</li>
+      </ul>
+
+      <h2>Finalités</h2>
+      <ul>
+        <li>Répondre aux demandes envoyées via le formulaire de contact.</li>
+        <li>Envoyer le résultat demandé (score + recommandations) à l’adresse email fournie.</li>
+        <li>Assurer la sécurité du site, prévenir la fraude et les abus.</li>
+      </ul>
+
+      <h2>Base légale</h2>
+      <ul>
+        <li><b>Consentement</b> : lorsque vous saisissez et envoyez volontairement un formulaire (contact / envoi de résultats).</li>
+        <li><b>Intérêt légitime</b> : sécurité du site et prévention des abus (logs techniques, mesures de protection).</li>
+      </ul>
+
+      <h2>Destinataires et sous-traitants</h2>
+      <p>
+        Vos données peuvent être transmises uniquement aux prestataires nécessaires à la fourniture du service :
+      </p>
+      <ul>
+        <li><b>Formspree</b> : réception des formulaires et transmission du message/résultat (rôle de sous-traitant).</li>
+        <li><b>Hébergeur</b> : hébergement du site et journaux techniques.</li>
+      </ul>
+      <p class="tiny">
+        Remarque : les transferts hors UE (le cas échéant) dépendent des configurations du prestataire. Vous pouvez demander les informations
+        associées (garanties, clauses) en écrivant à <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a>.
+      </p>
+
+      <h2>Durées de conservation</h2>
+      <ul>
+        <li><b>Demandes via formulaire :</b> durée nécessaire au traitement, puis archivage limité si besoin (ex. suivi commercial) — <b>[durée à définir, ex. 12 mois]</b>.</li>
+        <li><b>Résultats de tests :</b> durée nécessaire à l’envoi et au suivi — <b>[durée à définir, ex. 6 mois]</b>.</li>
+        <li><b>Logs techniques :</b> selon l’hébergeur — <b>[durée à définir, ex. 6 à 12 mois]</b>.</li>
+      </ul>
+
+      <h2>Sécurité</h2>
+      <p>
+        Nous mettons en œuvre des mesures de protection adaptées : limitation des accès, surveillance, bonnes pratiques de configuration,
+        et réduction des données collectées au strict nécessaire.
+      </p>
+
+      <h2>Vos droits</h2>
+      <p>
+        Conformément au RGPD, vous disposez notamment des droits suivants : accès, rectification, effacement, opposition,
+        limitation, portabilité (selon le cas).
+      </p>
+      <p>
+        Pour exercer vos droits, écrivez à <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a> en précisant votre demande
+        et l’adresse email concernée.
+      </p>
+      <p class="tiny">
+        En cas de doute raisonnable sur l’identité, une preuve d’identité peut être demandée (uniquement pour sécuriser la demande).
+      </p>
+
+      <h2>Réclamation</h2>
+      <p>
+        Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de l’autorité de contrôle compétente
+        (en France : la CNIL).
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Pour plus d’informations, consultez la page <a href="/cookies.html">Cookies</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year"></span> NovIA Secure</div>
+      <div>
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <span style="opacity:.6"> · </span>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <span style="opacity:.6"> · </span>
+        <a href="/cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+    document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString("fr-FR");
+  </script>
+</body>
+</html>
