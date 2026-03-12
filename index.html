@@ -7,15 +7,10 @@
   <meta name="description" content="NovIA Secure : audit, prévention, sensibilisation — sécurité numérique pour entreprises et structures publiques." />
   <meta name="theme-color" content="#0b1220" />
   <meta name="robots" content="index,follow" />
-
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <!-- Inter -->
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900" rel="stylesheet">
-
   <style>
     :root{
       --bg0:#060814; --bg1:#0b1220; --bg2:#0f172a;
@@ -44,307 +39,80 @@
     ::selection{background:rgba(96,165,250,.28)}
     .container{width:min(var(--container), 92vw); margin:0 auto}
     .skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto;
-      padding:10px 12px; background:rgba(15,23,42,.92);
-      border:1px solid var(--line); border-radius:12px; z-index:9999;
-    }
-
-    /* Topbar */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background:rgba(6,8,20,.55);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line2);
-    }
+    .skip:focus{left:16px; top:16px; width:auto; height:auto; padding:10px 12px; background:rgba(15,23,42,.92); border:1px solid var(--line); border-radius:12px; z-index:9999;}
+    .topbar{position:sticky; top:0; z-index:50; background:rgba(6,8,20,.55); backdrop-filter:blur(12px); border-bottom:1px solid var(--line2);}
     .topbar__inner{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
-    .brand__mark{
-      width:44px; height:44px; border-radius:16px; display:grid; place-items:center;
-      background:
-        radial-gradient(20px 20px at 28% 26%, rgba(147,197,253,.34), transparent 60%),
-        radial-gradient(20px 20px at 72% 72%, rgba(167,139,250,.18), transparent 62%),
-        linear-gradient(135deg, rgba(96,165,250,.18), rgba(147,197,253,.06));
-      border:1px solid rgba(147,197,253,.20);
-      box-shadow:0 14px 40px rgba(0,0,0,.25);
-      overflow:hidden;
-    }
+    .brand__mark{width:44px; height:44px; border-radius:16px; display:grid; place-items:center; background: radial-gradient(20px 20px at 28% 26%, rgba(147,197,253,.34), transparent 60%), radial-gradient(20px 20px at 72% 72%, rgba(167,139,250,.18), transparent 62%), linear-gradient(135deg, rgba(96,165,250,.18), rgba(147,197,253,.06)); border:1px solid rgba(147,197,253,.20); box-shadow:0 14px 40px rgba(0,0,0,.25); overflow:hidden;}
     .brand__name{font-weight:900; font-size:14px; letter-spacing:.25px}
     .brand__tag{font-size:12px; color:var(--muted2); margin-top:2px}
-
-    /* Logo */
-    .brand__logo{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:contain;
-      filter:saturate(1.02) contrast(1.06);
-    }
-
-    /* NAV AS BUTTON TABS */
+    .brand__logo{width:100%; height:100%; display:block; object-fit:contain; filter:saturate(1.02) contrast(1.06);}
     .nav{display:flex; align-items:center; gap:10px}
-    .nav__link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid var(--line2);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:13.5px;
-      font-weight:700;
-      transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
-      text-decoration:none;
-      white-space:nowrap;
-    }
-    .nav__link:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      border-color:rgba(147,197,253,.18);
-      text-decoration:none;
-      transform:translateY(-1px);
-    }
-
-    /* CTA nav tabs (Tests) */
-    .nav__link--cta{
-      background:linear-gradient(135deg,#3b82f6,#60a5fa);
-      border:1px solid rgba(255,255,255,.25);
-      color:#ffffff;
-      font-weight:800;
-      box-shadow:0 10px 30px rgba(59,130,246,.35);
-      position:relative;
-    }
-    .nav__link--cta:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 40px rgba(59,130,246,.45);
-      background:linear-gradient(135deg,#2563eb,#3b82f6);
-      color:#ffffff;
-    }
-
-    .nav__toggle{
-      display:none; width:44px; height:40px; border-radius:14px;
-      background:rgba(255,255,255,.04); border:1px solid var(--line); cursor:pointer;
-    }
+    .nav__link{display:inline-flex; align-items:center; justify-content:center; padding:10px 12px; border-radius:999px; border:1px solid var(--line2); background:rgba(255,255,255,.03); color:var(--muted); font-size:13.5px; font-weight:700; transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease); text-decoration:none; white-space:nowrap;}
+    .nav__link:hover{color:var(--text); background:rgba(255,255,255,.06); border-color:rgba(147,197,253,.18); text-decoration:none; transform:translateY(-1px);}
+    .nav__link--cta{background:linear-gradient(135deg,#3b82f6,#60a5fa); border:1px solid rgba(255,255,255,.25); color:#ffffff; font-weight:800; box-shadow:0 10px 30px rgba(59,130,246,.35); position:relative;}
+    .nav__link--cta:hover{transform:translateY(-2px); box-shadow:0 16px 40px rgba(59,130,246,.45); background:linear-gradient(135deg,#2563eb,#3b82f6); color:#ffffff;}
+    .nav__toggle{display:none; width:44px; height:40px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid var(--line); cursor:pointer;}
     .nav__toggle span{display:block; width:18px; height:2px; background:var(--text); margin:5px auto; border-radius:999px}
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:14px;
-      border:1px solid rgba(147,197,253,.26);
-      background:
-        radial-gradient(22px 22px at 28% 22%, rgba(34,211,238,.16), transparent 60%),
-        radial-gradient(22px 22px at 75% 78%, rgba(167,139,250,.12), transparent 60%),
-        linear-gradient(135deg, rgba(96,165,250,.20), rgba(147,197,253,.07));
-      color:var(--text); font-weight:800;
-      box-shadow:var(--shadow2);
-      transition:transform .22s var(--ease), filter .22s var(--ease), box-shadow .22s var(--ease);
-      text-decoration:none;
-    }
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 14px; border-radius:14px; border:1px solid rgba(147,197,253,.26); background: radial-gradient(22px 22px at 28% 22%, rgba(34,211,238,.16), transparent 60%), radial-gradient(22px 22px at 75% 78%, rgba(167,139,250,.12), transparent 60%), linear-gradient(135deg, rgba(96,165,250,.20), rgba(147,197,253,.07)); color:var(--text); font-weight:800; box-shadow:var(--shadow2); transition:transform .22s var(--ease), filter .22s var(--ease), box-shadow .22s var(--ease); text-decoration:none;}
     .btn:hover{transform:translateY(-1px); filter:brightness(1.03); box-shadow:var(--shadow); text-decoration:none}
     .btn--ghost{background:rgba(255,255,255,.035); border:1px solid var(--line); box-shadow:none}
     .btn--small{padding:10px 12px; border-radius:999px; font-size:13.5px}
-
-    /* Hero */
     .hero{padding:62px 0 18px; position:relative}
     .hero__grid{display:grid; grid-template-columns:1.12fr .88fr; gap:22px; align-items:stretch; position:relative; z-index:2}
-    .hero h1{
-      font-size:clamp(30px, 3.8vw, 54px);
-      line-height:1.04; margin:0 0 14px; letter-spacing:-0.6px; font-weight:900;
-    }
+    .hero h1{font-size:clamp(30px, 3.8vw, 54px); line-height:1.04; margin:0 0 14px; letter-spacing:-0.6px; font-weight:900;}
     .lead{color:var(--muted); font-size:16.5px; line-height:1.78; margin:0 0 18px; max-width:72ch}
     .hero__actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px}
     .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .chip{
-      font-size:12px; padding:8px 11px; border-radius:999px;
-      border:1px solid var(--line2); background:rgba(255,255,255,.035); color:var(--muted);
-    }
-
-    .panel{
-      border-radius:var(--r24);
-      border:1px solid var(--line2);
-      background:
-        radial-gradient(600px 300px at 20% 0%, rgba(96,165,250,.14), transparent 60%),
-        radial-gradient(600px 300px at 95% 15%, rgba(167,139,250,.10), transparent 58%),
-        rgba(15,23,42,.58);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      padding:18px;
-    }
-    .panel__top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line2); background:rgba(255,255,255,.03);
-      color:var(--muted); font-size:12px; font-weight:700;
-    }
+    .chip{font-size:12px; padding:8px 11px; border-radius:999px; border:1px solid var(--line2); background:rgba(255,255,255,.035); color:var(--muted);}
+    .panel{border-radius:var(--r24); border:1px solid var(--line2); background: radial-gradient(600px 300px at 20% 0%, rgba(96,165,250,.14), transparent 60%), radial-gradient(600px 300px at 95% 15%, rgba(167,139,250,.10), transparent 58%), rgba(15,23,42,.58); box-shadow:var(--shadow); overflow:hidden; padding:18px;}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; border:1px solid var(--line2); background:rgba(255,255,255,.03); color:var(--muted); font-size:12px; font-weight:700;}
     .badge i{width:8px; height:8px; border-radius:999px; background:var(--good); box-shadow:0 0 0 4px rgba(52,211,153,.12); display:inline-block}
-    .kpi{text-align:right; line-height:1.2}
-    .kpi b{display:block; font-weight:900; letter-spacing:-.2px}
-    .kpi span{color:var(--muted2); font-size:12px}
     .mini-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px}
     .mini-card{border-radius:var(--r18); border:1px solid var(--line2); background:rgba(255,255,255,.03); padding:12px}
     .mini-card b{display:block; font-weight:900; font-size:13px}
     .mini-card p{margin:4px 0 0; color:var(--muted2); font-size:12.5px; line-height:1.5}
-
-    /* Sections */
     .section{padding:62px 0; border-top:1px solid rgba(255,255,255,.06); position:relative}
     .section--alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01))}
     .section__head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:18px}
-    .section__head h2{
-      margin:0;
-      font-size:22px;
-      letter-spacing:-.2px;
-      font-weight:900;
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:14px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(147,197,253,.14);
-      box-shadow:0 10px 26px rgba(0,0,0,.18);
-    }
+    .section__head h2{margin:0; font-size:22px; letter-spacing:-.2px; font-weight:900; display:inline-block; padding:8px 12px; border-radius:14px; background:rgba(255,255,255,.03); border:1px solid rgba(147,197,253,.14); box-shadow:0 10px 26px rgba(0,0,0,.18);}
     .sub{margin:10px 0 0; color:var(--muted); line-height:1.7; max-width:78ch; font-size:14px}
     .tiny{font-size:12px; color:var(--muted2); line-height:1.6}
     .grid{display:grid; gap:16px}
     .grid.two{grid-template-columns:1fr 1fr}
     .grid.three{grid-template-columns:1fr 1fr 1fr}
-    .card{
-      border-radius:var(--r24);
-      padding:18px;
-      border:1px solid var(--line2);
-      background:
-        radial-gradient(420px 160px at 20% 10%, rgba(147,197,253,.08), transparent 55%),
-        rgba(255,255,255,.035);
-      box-shadow:0 10px 30px rgba(0,0,0,.18);
-    }
+    .card{border-radius:var(--r24); padding:18px; border:1px solid var(--line2); background: radial-gradient(420px 160px at 20% 10%, rgba(147,197,253,.08), transparent 55%), rgba(255,255,255,.035); box-shadow:0 10px 30px rgba(0,0,0,.18);}
     .card__title{margin:0 0 10px; font-size:16px; font-weight:900; letter-spacing:-.15px}
     .muted{color:var(--muted); line-height:1.75}
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:6px 0}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px; border-radius:999px;
-      border:1px solid var(--line2); background:rgba(255,255,255,.03);
-      color:var(--muted2); font-size:12px; font-weight:700;
-      margin:0 8px 8px 0;
-    }
-
-    .form{
-      border-radius:var(--r24);
-      padding:18px;
-      border:1px solid var(--line2);
-      background:
-        radial-gradient(420px 180px at 30% 0%, rgba(96,165,250,.12), transparent 55%),
-        rgba(15,23,42,.58);
-      box-shadow:var(--shadow);
-    }
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:7px 10px; border-radius:999px; border:1px solid var(--line2); background:rgba(255,255,255,.03); color:var(--muted2); font-size:12px; font-weight:700; margin:0 8px 8px 0;}
+    .form{border-radius:var(--r24); padding:18px; border:1px solid var(--line2); background: radial-gradient(420px 180px at 30% 0%, rgba(96,165,250,.12), transparent 55%), rgba(15,23,42,.58); box-shadow:var(--shadow);}
     label{display:block; margin:12px 0; color:var(--muted2); font-size:13px; font-weight:600}
-    input, textarea{
-      width:100%;
-      margin-top:7px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.035);
-      color:var(--text);
-      outline:none;
-      font-family:inherit;
-      font-size:14px;
-    }
-    input:focus, textarea:focus{
-      border-color:rgba(147,197,253,.30);
-      box-shadow:0 0 0 4px rgba(96,165,250,.14);
-      background:rgba(255,255,255,.05);
-    }
-
+    input, textarea{width:100%; margin-top:7px; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.035); color:var(--text); outline:none; font-family:inherit; font-size:14px;}
+    input:focus, textarea:focus{border-color:rgba(147,197,253,.30); box-shadow:0 0 0 4px rgba(96,165,250,.14); background:rgba(255,255,255,.05);}
     .footer{padding:32px 0 52px; border-top:1px solid rgba(255,255,255,.06)}
     .footer__inner{display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; color:var(--muted2); font-size:12.5px}
-
-    /* Reveal */
     .reveal{opacity:0; transform:translateY(10px); transition:opacity .65s var(--ease), transform .65s var(--ease)}
     .reveal.is-visible{opacity:1; transform:translateY(0)}
-
-    /* Maturity quiz */
     .q{margin-top:12px; padding:12px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.02)}
     .q__title{font-weight:800; font-size:13.5px; color:var(--text); line-height:1.45}
     .q__choices{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .choice{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.02);
-      color:var(--muted);
-      font-size:12.5px;
-      font-weight:700;
-      cursor:pointer;
-      user-select:none;
-    }
+    .choice{display:inline-flex; align-items:center; gap:8px; padding:9px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.02); color:var(--muted); font-size:12.5px; font-weight:700; cursor:pointer; user-select:none;}
     .choice input{width:auto; margin:0}
-    .choice:has(input:checked){
-      color:var(--text);
-      border-color:rgba(147,197,253,.24);
-      background:rgba(96,165,250,.08);
-    }
-
-    /* HERO CTA TEST BUTTONS */
-    .btn--test-main{
-      background:linear-gradient(135deg,#1e40af,#3b82f6);
-      border:none;
-      font-size:15px;
-      padding:16px 22px;
-      border-radius:18px;
-      box-shadow:0 18px 50px rgba(37,99,235,.45);
-    }
-    .btn--test-main:hover{
-      transform:translateY(-3px);
-      box-shadow:0 22px 60px rgba(37,99,235,.6);
-      text-decoration:none;
-    }
-    .btn--test-alt{
-      background:linear-gradient(135deg,#0f172a,#334155);
-      border:1px solid rgba(147,197,253,.35);
-      font-size:15px;
-      padding:16px 22px;
-      border-radius:18px;
-      box-shadow:0 18px 50px rgba(0,0,0,.4);
-    }
-    .btn--test-alt:hover{
-      transform:translateY(-3px);
-      border-color:#60a5fa;
-      text-decoration:none;
-    }
-    .btn--test-ai{
-      background:linear-gradient(135deg,#0b3b2e,#22c55e);
-      border:1px solid rgba(255,255,255,.22);
-      font-size:15px;
-      padding:16px 22px;
-      border-radius:18px;
-      box-shadow:0 18px 50px rgba(34,197,94,.22);
-      color:#ffffff;
-    }
-    .btn--test-ai:hover{
-      transform:translateY(-3px);
-      box-shadow:0 22px 60px rgba(34,197,94,.30);
-      text-decoration:none;
-      color:#ffffff;
-      filter:brightness(1.02);
-    }
-
-    /* Mobile */
+    .choice:has(input:checked){color:var(--text); border-color:rgba(147,197,253,.24); background:rgba(96,165,250,.08);}
+    .btn--test-main{background:linear-gradient(135deg,#1e40af,#3b82f6); border:none; font-size:15px; padding:16px 22px; border-radius:18px; box-shadow:0 18px 50px rgba(37,99,235,.45);}
+    .btn--test-main:hover{transform:translateY(-3px); box-shadow:0 22px 60px rgba(37,99,235,.6); text-decoration:none;}
+    .btn--test-alt{background:linear-gradient(135deg,#0f172a,#334155); border:1px solid rgba(147,197,253,.35); font-size:15px; padding:16px 22px; border-radius:18px; box-shadow:0 18px 50px rgba(0,0,0,.4);}
+    .btn--test-alt:hover{transform:translateY(-3px); border-color:#60a5fa; text-decoration:none;}
+    .btn--test-ai{background:linear-gradient(135deg,#0b3b2e,#22c55e); border:1px solid rgba(255,255,255,.22); font-size:15px; padding:16px 22px; border-radius:18px; box-shadow:0 18px 50px rgba(34,197,94,.22); color:#ffffff;}
+    .btn--test-ai:hover{transform:translateY(-3px); box-shadow:0 22px 60px rgba(34,197,94,.30); text-decoration:none; color:#ffffff; filter:brightness(1.02);}
     @media (max-width: 980px){
       .hero__grid{grid-template-columns:1fr}
       .grid.two{grid-template-columns:1fr}
       .grid.three{grid-template-columns:1fr}
       .nav{display:none}
-      .nav.is-open{
-        display:flex; position:absolute; right:4vw; top:64px;
-        flex-direction:column; width:min(360px, 92vw);
-        background:rgba(6,8,20,.96);
-        border:1px solid var(--line);
-        border-radius:18px;
-        padding:10px;
-        box-shadow:var(--shadow);
-      }
+      .nav.is-open{display:flex; position:absolute; right:4vw; top:64px; flex-direction:column; width:min(360px, 92vw); background:rgba(6,8,20,.96); border:1px solid var(--line); border-radius:18px; padding:10px; box-shadow:var(--shadow);}
       .nav__toggle{display:block}
       .mini-grid{grid-template-columns:1fr}
       .q__choices{flex-direction:column; align-items:flex-start}
@@ -364,23 +132,21 @@
         </div>
         <div>
           <div class="brand__name">NovIA Secure</div>
-          <div class="brand__tag">Sécurité & souveraineté numérique</div>
+          <div class="brand__tag">Sécurité &amp; souveraineté numérique</div>
         </div>
       </div>
-
       <nav class="nav" aria-label="Navigation principale">
         <a class="nav__link" href="#accueil">Accueil</a>
         <a class="nav__link" href="#piliers">4 piliers</a>
         <a class="nav__link" href="#cadre">Cadre</a>
         <a class="nav__link" href="#contexte">Contexte</a>
         <a class="nav__link" href="#ai">IA / AI Act</a>
-        <a class="nav__link" href="#attaques">Types d’attaques</a>
+        <a class="nav__link" href="#attaques">Types d'attaques</a>
         <a class="nav__link" href="#services">Services</a>
         <a class="nav__link nav__link--cta" href="#maturite">Tests</a>
         <a class="nav__link" href="#methode">Méthode</a>
         <a class="nav__link" href="#contact">Contact</a>
       </nav>
-
       <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -394,17 +160,15 @@
         <div class="reveal">
           <h1>Sécurité numérique pour entreprises et structures publiques</h1>
           <p class="lead">
-            NovIA Secure intervient sur l’analyse des risques, la prévention opérationnelle et la maîtrise des dépendances numériques.
+            NovIA Secure intervient sur l'analyse des risques, la prévention opérationnelle et la maîtrise des dépendances numériques.
             Nous intégrons également les <b>usages IA</b> (shadow AI, partage de données, fraude augmentée) et les exigences <b>NIS2 / AI Act</b>.
-            L’objectif : sécuriser les systèmes tout en conservant une capacité de reprise, de bascule et de contrôle des données.
+            L'objectif : sécuriser les systèmes tout en conservant une capacité de reprise, de bascule et de contrôle des données.
           </p>
-
           <div class="hero__actions">
             <a class="btn" href="#services">Voir les services</a>
             <a class="btn btn--ghost" href="#methode">Consulter la méthode</a>
             <a class="btn btn--ghost" href="#ai">Diagnostiquer mes usages IA</a>
           </div>
-
           <div class="chips" aria-label="Domaines d'intervention">
             <span class="chip">Audit</span>
             <span class="chip">Prévention</span>
@@ -413,13 +177,8 @@
             <span class="chip">Souveraineté (UE)</span>
           </div>
         </div>
-
         <aside class="panel reveal" aria-label="Illustration cybersécurité">
-          <img
-            src="cyber-hero.png"
-            alt="Illustration cybersécurité"
-            style="width:100%;height:100%;display:block;object-fit:cover;border-radius:18px;"
-          />
+          <img src="cyber-hero.png" alt="Illustration cybersécurité" style="width:100%;height:100%;display:block;object-fit:cover;border-radius:18px;" />
         </aside>
       </div>
     </section>
@@ -430,7 +189,6 @@
         <p style="margin:0 0 20px;font-weight:800;font-size:18px;">
           Diagnostiquez immédiatement votre niveau de sécurité, vos usages IA et votre maîtrise numérique.
         </p>
-
         <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
           <a href="#maturite" class="btn btn--test-main">🔐 Tester ma maturité cyber</a>
           <a href="#ai" class="btn btn--test-ai">🧠 Évaluer mes usages IA (AI Act)</a>
@@ -449,24 +207,27 @@
           </div>
           <div class="tiny">clarifier • prioriser • sécuriser</div>
         </div>
-
         <div class="grid two">
+
+          <!-- MODIFIÉ : Pilier 1 — ajout "exposition internet" -->
           <article class="card reveal">
             <h3 class="card__title">1) Sécurité technique opérationnelle</h3>
             <p class="muted">
-              Réduction de l’exposition : accès, postes, cloud, messagerie, sauvegardes, durcissement.
-              Objectif : diminuer les points d’entrée et limiter l’impact.
+              Réduction de l'exposition : accès, postes, cloud, messagerie, sauvegardes, durcissement.
+              Cela inclut l'identification des services et interfaces visibles depuis l'extérieur.
+              Objectif : diminuer les points d'entrée et limiter l'impact.
             </p>
             <div class="tiny" style="margin-top:10px;">
               <span class="pill">MFA</span>
               <span class="pill">durcissement</span>
               <span class="pill">sauvegardes</span>
               <span class="pill">messagerie</span>
+              <span class="pill">exposition internet</span>
             </div>
           </article>
 
           <article class="card reveal">
-            <h3 class="card__title">2) Gouvernance & conformité</h3>
+            <h3 class="card__title">2) Gouvernance &amp; conformité</h3>
             <p class="muted">
               Cadrage et pilotage : cartographie, risques, rôles, procédures, continuité.
               Objectif : décisions claires, mesures maintenues dans le temps.
@@ -480,7 +241,7 @@
           </article>
 
           <article class="card reveal">
-            <h3 class="card__title">3) Sensibilisation & culture cyber</h3>
+            <h3 class="card__title">3) Sensibilisation &amp; culture cyber</h3>
             <p class="muted">
               Réflexes et validation : phishing, fraude, partage, mots de passe, usages IA.
               Objectif : réduire les erreurs dans les situations réelles.
@@ -494,7 +255,7 @@
           </article>
 
           <article class="card reveal">
-            <h3 class="card__title">4) Souveraineté & maîtrise des dépendances</h3>
+            <h3 class="card__title">4) Souveraineté &amp; maîtrise des dépendances</h3>
             <p class="muted">
               Maîtrise des fournisseurs et des flux : données, juridictions, réversibilité, bascule.
               Objectif : réduire la dépendance et conserver une capacité de reprise.
@@ -510,22 +271,21 @@
       </div>
     </section>
 
-    <!-- 2) CADRE D’INTERVENTION -->
+    <!-- 2) CADRE D'INTERVENTION -->
     <section id="cadre" class="section section--alt">
       <div class="container">
         <div class="section__head reveal">
           <div>
-            <h2>Cadre d’intervention</h2>
+            <h2>Cadre d'intervention</h2>
             <p class="sub">Périmètre, limites et objectifs opérationnels.</p>
           </div>
           <div class="tiny">périmètre • décisions • suivi</div>
         </div>
-
         <div class="grid two">
           <article class="card reveal">
             <h3 class="card__title">Ce qui est couvert</h3>
             <p class="muted">
-              Analyse des risques et des points d’entrée liés aux outils, aux accès, aux partages, aux sauvegardes et aux procédures.
+              Analyse des risques et des points d'entrée liés aux outils, aux accès, aux partages, aux sauvegardes et aux procédures.
               La restitution vise une décision claire et une priorisation des actions.
             </p>
             <div class="tiny" style="margin-top:10px;">
@@ -535,22 +295,21 @@
               <span class="pill">sensibilisation</span>
             </div>
           </article>
-
           <article class="card reveal">
-            <h3 class="card__title">Ce qui n’est pas l’objectif</h3>
+            <h3 class="card__title">Ce qui n'est pas l'objectif</h3>
             <p class="muted">
-              Le cadre n’est pas la vente d’outils ni l’infogérance. Il ne s’agit pas d’un centre de supervision 24/7.
+              Le cadre n'est pas la vente d'outils ni l'infogérance. Il ne s'agit pas d'un centre de supervision 24/7.
               Si des actions nécessitent des prestataires, le travail porte sur le cadrage, la coordination et la vérification.
             </p>
             <p class="tiny" style="margin-top:10px;">
-              L’intervention vise la réduction de l’exposition et l’organisation de mesures maintenues dans le temps.
+              L'intervention vise la réduction de l'exposition et l'organisation de mesures maintenues dans le temps.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3) CONTEXTE & RISQUES (avec IA) -->
+    <!-- 3) CONTEXTE & RISQUES -->
     <section id="contexte" class="section">
       <div class="container">
         <div class="section__head reveal">
@@ -560,54 +319,44 @@
           </div>
           <div class="tiny">exposition • organisation • usages</div>
         </div>
-
         <div class="grid two">
           <article class="card reveal">
             <h3 class="card__title">Risques actuels</h3>
             <p class="muted">
-              Les incidents les plus fréquents impliquent l’hameçonnage, le vol d’identifiants, la fraude par email,
-              l’indisponibilité liée à un rançongiciel, ou la fuite de données via un compte compromis.
+              Les incidents les plus fréquents impliquent l'hameçonnage, le vol d'identifiants, la fraude par email,
+              l'indisponibilité liée à un rançongiciel, ou la fuite de données via un compte compromis.
             </p>
-            <p class="tiny">
-              Points d’entrée courants : messagerie, accès distants, comptes cloud, droits trop larges.
-            </p>
+            <p class="tiny">Points d'entrée courants : messagerie, accès distants, comptes cloud, droits trop larges.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Impacts opérationnels</h3>
             <p class="muted">
-              Un incident peut entraîner un arrêt partiel de l’activité, des traitements manuels, une perte de données,
-              et une mobilisation de prestataires. Des obligations de notification peuvent s’appliquer selon les données concernées.
+              Un incident peut entraîner un arrêt partiel de l'activité, des traitements manuels, une perte de données,
+              et une mobilisation de prestataires. Des obligations de notification peuvent s'appliquer selon les données concernées.
             </p>
-            <p class="tiny">
-              L’objectif est de réduire la probabilité d’un incident et d’en limiter les effets.
-            </p>
+            <p class="tiny">L'objectif est de réduire la probabilité d'un incident et d'en limiter les effets.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Facteur humain</h3>
             <p class="muted">
-              Les causes sont souvent liées aux usages : validation trop rapide d’une demande, réutilisation de mots de passe,
+              Les causes sont souvent liées aux usages : validation trop rapide d'une demande, réutilisation de mots de passe,
               partage non maîtrisé, absence de double vérification, ou contournement de procédure.
             </p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">IA et ingénierie sociale</h3>
             <p class="muted">
-              L’usage d’outils IA tels que des assistants à la rédaction et à l’analyse modifie les pratiques quotidiennes.
+              L'usage d'outils IA tels que des assistants à la rédaction et à l'analyse modifie les pratiques quotidiennes.
               Ils peuvent faciliter certaines tâches, mais ils augmentent aussi les risques liés au partage de données,
               à la validation de demandes et à la crédibilité des messages reçus (usurpations facilitées, contenus plus convaincants...etc)
             </p>
-            <p class="tiny">
-              Les mesures de prévention doivent intégrer ces usages réels, sans supposer une maîtrise technique avancée des utilisateurs.
-            </p>
+            <p class="tiny">Les mesures de prévention doivent intégrer ces usages réels, sans supposer une maîtrise technique avancée des utilisateurs.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3bis) IA / AI ACT (OFFRE) -->
+    <!-- 3bis) IA / AI ACT -->
     <section id="ai" class="section section--alt">
       <div class="container">
         <div class="section__head reveal">
@@ -617,12 +366,11 @@
           </div>
           <div class="tiny">shadow AI • données • règles • conformité</div>
         </div>
-
         <div class="grid two">
           <article class="card reveal">
-            <h3 class="card__title">Pourquoi c’est devenu critique</h3>
+            <h3 class="card__title">Pourquoi c'est devenu critique</h3>
             <p class="muted">
-              L’IA générative s’installe dans les équipes : rédaction, synthèses, support, analyse. Sans cadre, cela crée une
+              L'IA générative s'installe dans les équipes : rédaction, synthèses, support, analyse. Sans cadre, cela crée une
               exposition : partage de données sensibles, décisions non tracées, fraude renforcée, dépendance à des fournisseurs.
             </p>
             <div class="tiny" style="margin-top:10px;">
@@ -632,90 +380,82 @@
               <span class="pill">dépendances</span>
             </div>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Ce que nous faisons (PME / collectivités)</h3>
             <p class="muted">
-              Diagnostic pragmatique : inventaire des outils IA, cartographie des cas d’usage, analyse des données partagées,
-              règles d’usage, contrôles de base (validation, accès, traçabilité), et priorisation des actions.
+              Diagnostic pragmatique : inventaire des outils IA, cartographie des cas d'usage, analyse des données partagées,
+              règles d'usage, contrôles de base (validation, accès, traçabilité), et priorisation des actions.
             </p>
             <p class="tiny" style="margin-top:10px;">
-              <b>Livrables :</b> registre des usages IA, règles d’usage (1 page), matrice de risques IA, plan d’action 90 jours / 12 mois.
+              <b>Livrables :</b> registre des usages IA, règles d'usage (1 page), matrice de risques IA, plan d'action 90 jours / 12 mois.
             </p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">AI Act : approche simple et actionnable</h3>
             <p class="muted">
-              Nous aidons à qualifier l’exposition (risque minimal/limité/élevé), à organiser une gouvernance minimale,
+              Nous aidons à qualifier l'exposition (risque minimal/limité/élevé), à organiser une gouvernance minimale,
               et à constituer une base documentaire exploitable (sans usine à gaz).
             </p>
-            <p class="tiny">
-              Objectif : décisions claires + réduction du risque opérationnel + conformité progressive.
-            </p>
+            <p class="tiny">Objectif : décisions claires + réduction du risque opérationnel + conformité progressive.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Premier échange : cadrage IA (30 min)</h3>
             <p class="muted">
-              Un échange court permet d’identifier les usages IA réels, les données concernées, les outils utilisés et les points de fuite.
+              Un échange court permet d'identifier les usages IA réels, les données concernées, les outils utilisés et les points de fuite.
               Vous repartez avec une première priorisation (quick wins) et un plan de diagnostic.
             </p>
             <div class="hero__actions" style="margin-top:12px">
               <a class="btn btn--small" href="#contact">Planifier un échange</a>
-              <a class="btn btn--ghost btn--small" href="#services">Voir l’offre</a>
+              <a class="btn btn--ghost btn--small" href="#services">Voir l'offre</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 4) TYPES D’ATTAQUES -->
+    <!-- 4) TYPES D'ATTAQUES -->
     <section id="attaques" class="section section--alt">
       <div class="container">
         <div class="section__head reveal">
           <div>
-            <h2>Types d’attaques</h2>
+            <h2>Types d'attaques</h2>
             <p class="sub">Principaux scénarios rencontrés par les entreprises et structures publiques.</p>
           </div>
           <div class="tiny">messagerie • identifiants • disponibilité • données</div>
         </div>
-
         <div class="grid three">
           <article class="card reveal">
             <h3 class="card__title">Hameçonnage (phishing)</h3>
-            <p class="muted">Messages visant à obtenir un mot de passe, une validation de paiement, ou l’ouverture d’un lien vers un site frauduleux.</p>
-            <p class="tiny">Point d’entrée fréquent : messagerie et comptes cloud.</p>
+            <p class="muted">Messages visant à obtenir un mot de passe, une validation de paiement, ou l'ouverture d'un lien vers un site frauduleux.</p>
+            <p class="tiny">Point d'entrée fréquent : messagerie et comptes cloud.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Fraude au président / BEC</h3>
-            <p class="muted">Usurpation d’identité pour demander un virement, un changement d’IBAN, ou une transmission de documents.</p>
-            <p class="tiny">Souvent lié à une compromission de boîte mail ou à de l’ingénierie sociale.</p>
+            <p class="muted">Usurpation d'identité pour demander un virement, un changement d'IBAN, ou une transmission de documents.</p>
+            <p class="tiny">Souvent lié à une compromission de boîte mail ou à de l'ingénierie sociale.</p>
           </article>
-
           <article class="card reveal">
-            <h3 class="card__title">Vol d’identifiants</h3>
-            <p class="muted">Récupération d’identifiants via phishing, fuite externe, réutilisation de mots de passe, ou malware sur un poste.</p>
+            <h3 class="card__title">Vol d'identifiants</h3>
+            <p class="muted">Récupération d'identifiants via phishing, fuite externe, réutilisation de mots de passe, ou malware sur un poste.</p>
             <p class="tiny">Impact : accès non autorisé aux emails, fichiers, applications.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Rançongiciel</h3>
-            <p class="muted">Chiffrement des données et indisponibilité des systèmes, avec demande de rançon. L’attaque combine accès initial et propagation.</p>
+            <p class="muted">Chiffrement des données et indisponibilité des systèmes, avec demande de rançon. L'attaque combine accès initial et propagation.</p>
             <p class="tiny">Mesure structurante : sauvegardes séparées et testées.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Logiciels malveillants</h3>
-            <p class="muted">Infection via pièce jointe, téléchargement ou site compromis. Peut permettre l’exfiltration de données ou la prise de contrôle.</p>
+            <p class="muted">Infection via pièce jointe, téléchargement ou site compromis. Peut permettre l'exfiltration de données ou la prise de contrôle.</p>
             <p class="tiny">Réduction du risque : mises à jour, droits limités, filtrage.</p>
           </article>
 
+          <!-- MODIFIÉ : Exposition de services — ajout phrase NovIA Secure -->
           <article class="card reveal">
             <h3 class="card__title">Exposition de services</h3>
             <p class="muted">Services publiés (RDP, VPN, portails) mal configurés ou non maintenus, exploitables via scans automatisés.</p>
             <p class="tiny">Contrôles : MFA, durcissement, supervision, mise à jour.</p>
+            <p class="tiny" style="margin-top:8px; color:var(--accent);">NovIA Secure intègre une analyse continue des surfaces exposées pour identifier ces points d'entrée avant qu'ils ne soient exploités.</p>
           </article>
 
           <article class="card reveal">
@@ -723,23 +463,21 @@
             <p class="muted">Partage non maîtrisé, erreur de destinataire, lien public, droits trop larges, ou exfiltration après compromission.</p>
             <p class="tiny">Contrôles : règles de partage, revue des droits, journaux.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Déni de service</h3>
-            <p class="muted">Saturation d’un site ou d’un service en ligne pour le rendre indisponible, surtout sur des services exposés.</p>
+            <p class="muted">Saturation d'un site ou d'un service en ligne pour le rendre indisponible, surtout sur des services exposés.</p>
             <p class="tiny">Réponse : protections réseau, CDN/WAF, plans de bascule.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">Chaîne fournisseur</h3>
-            <p class="muted">Incident provenant d’un prestataire, d’un outil SaaS, ou d’un compte tiers disposant d’accès.</p>
+            <p class="muted">Incident provenant d'un prestataire, d'un outil SaaS, ou d'un compte tiers disposant d'accès.</p>
             <p class="tiny">Contrôles : gestion des accès tiers, revues périodiques, clauses.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 5) SERVICES (orientés livrables) -->
+    <!-- 5) SERVICES -->
     <section id="services" class="section">
       <div class="container">
         <div class="section__head reveal">
@@ -749,30 +487,29 @@
           </div>
           <div class="tiny">périmètre • livrables • suivi</div>
         </div>
-
         <div class="grid two">
           <article class="card reveal">
             <h3 class="card__title">Audit de sécurité</h3>
-            <p class="muted">Objectif : obtenir une vue claire de la situation, des points d’entrée et des priorités.</p>
+            <p class="muted">Objectif : obtenir une vue claire de la situation, des points d'entrée et des priorités.</p>
             <ul class="list">
               <li>Cartographie des outils et des accès (comptes, droits, MFA, administrateurs)</li>
               <li>Revue des pratiques de messagerie et de partage</li>
               <li>Sauvegardes : existence, fréquence, séparation, tests de restauration</li>
               <li>Hygiène de base : mises à jour, postes, accès distants</li>
             </ul>
-            <p class="tiny"><b>Livrables :</b> synthèse décisionnelle, constats factuels, matrice de risques, plan d’action priorisé.</p>
+            <p class="tiny"><b>Livrables :</b> synthèse décisionnelle, constats factuels, matrice de risques, plan d'action priorisé.</p>
           </article>
 
           <article class="card reveal">
             <h3 class="card__title">Prévention et durcissement</h3>
-            <p class="muted">Objectif : réduire les points d’entrée fréquents et stabiliser les pratiques.</p>
+            <p class="muted">Objectif : réduire les points d'entrée fréquents et stabiliser les pratiques.</p>
             <ul class="list">
               <li>Gestion des comptes et des droits (moindre privilège)</li>
               <li>MFA sur les comptes sensibles</li>
               <li>Paramètres de messagerie (règles, redirections, alertes)</li>
               <li>Routines de sauvegarde et tests de restauration</li>
             </ul>
-            <p class="tiny"><b>Livrables :</b> liste d’actions, paramètres à appliquer, consignes internes, suivi des corrections.</p>
+            <p class="tiny"><b>Livrables :</b> liste d'actions, paramètres à appliquer, consignes internes, suivi des corrections.</p>
           </article>
 
           <article class="card reveal">
@@ -782,7 +519,7 @@
               <li>Reconnaître un message suspect, vérifier une demande, signaler</li>
               <li>Mots de passe, gestion des identifiants, usages de partage</li>
               <li>Réflexes en cas de doute : arrêt, vérification, escalade interne</li>
-              <li>Usages d’outils d’assistance : limites de partage et données à éviter</li>
+              <li>Usages d'outils d'assistance : limites de partage et données à éviter</li>
             </ul>
             <p class="tiny"><b>Livrables :</b> supports, fiches réflexes, procédures de validation, règles de base.</p>
           </article>
@@ -799,16 +536,29 @@
             <p class="tiny"><b>Livrables :</b> points à régulariser, actions et priorités, éléments de documentation.</p>
           </article>
 
+          <!-- NOUVEAU : Analyse d'exposition internet -->
           <article class="card reveal">
-            <h3 class="card__title">Diagnostic IA & AI Act (PME / collectivités)</h3>
+            <h3 class="card__title">Analyse d'exposition internet</h3>
+            <p class="muted">Objectif : identifier les services et interfaces visibles depuis l'extérieur avant qu'un attaquant ne les exploite.</p>
+            <ul class="list">
+              <li>Scan continu des surfaces exposées (ports, services, interfaces web, accès distants)</li>
+              <li>Détection des vulnérabilités connues sur les équipements et services publiés</li>
+              <li>Priorisation des corrections selon le niveau de criticité</li>
+              <li>Suivi dans le temps : détection des nouvelles expositions</li>
+            </ul>
+            <p class="tiny"><b>Livrables :</b> rapport d'exposition, carte des risques externes, plan de remédiation priorisé.</p>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card__title">Diagnostic IA &amp; AI Act (PME / collectivités)</h3>
             <p class="muted">Objectif : cadrer les usages IA, réduire les fuites de données, structurer une gouvernance minimale.</p>
             <ul class="list">
-              <li>Cartographie des outils IA et cas d’usage réels (shadow AI inclus)</li>
+              <li>Cartographie des outils IA et cas d'usage réels (shadow AI inclus)</li>
               <li>Analyse des données partagées et des risques opérationnels (fraude, décisions, confidentialité)</li>
-              <li>Règles d’usage + validation (CODIR / métiers) + mesures de base (accès, traçabilité)</li>
-              <li>Qualification d’exposition AI Act (simple, actionnable) + plan 90 jours / 12 mois</li>
+              <li>Règles d'usage + validation (CODIR / métiers) + mesures de base (accès, traçabilité)</li>
+              <li>Qualification d'exposition AI Act (simple, actionnable) + plan 90 jours / 12 mois</li>
             </ul>
-            <p class="tiny"><b>Livrables :</b> synthèse CODIR, registre d’usages IA, matrice risques IA, roadmap de remédiation.</p>
+            <p class="tiny"><b>Livrables :</b> synthèse CODIR, registre d'usages IA, matrice risques IA, roadmap de remédiation.</p>
           </article>
         </div>
       </div>
@@ -824,46 +574,26 @@
           </div>
           <div class="tiny">cadrage • diagnostic • suivi</div>
         </div>
-
         <div class="grid two">
           <article class="card reveal">
             <h3 class="card__title">1. Cadrage</h3>
-            <p class="muted">
-              Recueil du contexte : activité, outils, contraintes, incidents passés, organisation et interlocuteurs.
-              Définition du périmètre et des priorités.
-            </p>
+            <p class="muted">Recueil du contexte : activité, outils, contraintes, incidents passés, organisation et interlocuteurs. Définition du périmètre et des priorités.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">2. Diagnostic</h3>
-            <p class="muted">
-              Constats factuels sur les accès, les pratiques, les configurations, la continuité (sauvegarde/restauration)
-              et les usages courants.
-            </p>
+            <p class="muted">Constats factuels sur les accès, les pratiques, les configurations, la continuité (sauvegarde/restauration) et les usages courants.</p>
           </article>
-
           <article class="card reveal">
             <h3 class="card__title">3. Priorisation</h3>
-            <p class="muted">
-              Classement des actions selon le risque, l’effort, les dépendances et l’impact opérationnel.
-              Séparation entre actions rapides et chantiers structurants.
-            </p>
+            <p class="muted">Classement des actions selon le risque, l'effort, les dépendances et l'impact opérationnel. Séparation entre actions rapides et chantiers structurants.</p>
           </article>
-
           <article class="card reveal">
-            <h3 class="card__title">4. Mise en œuvre</h3>
-            <p class="muted">
-              Application des mesures retenues : configurations, consignes, procédures,
-              coordination avec des prestataires si nécessaire.
-            </p>
+            <h3 class="card__title">4. Mise en oeuvre</h3>
+            <p class="muted">Application des mesures retenues : configurations, consignes, procédures, coordination avec des prestataires si nécessaire.</p>
           </article>
-
           <article class="card reveal" style="grid-column:1/-1">
             <h3 class="card__title">5. Suivi</h3>
-            <p class="muted">
-              Points réguliers, ajustements et consolidation. Le suivi vise à maintenir les mesures dans le temps
-              et à réduire les retours à des pratiques à risque.
-            </p>
+            <p class="muted">Points réguliers, ajustements et consolidation. Le suivi vise à maintenir les mesures dans le temps et à réduire les retours à des pratiques à risque.</p>
           </article>
         </div>
       </div>
@@ -875,234 +605,60 @@
         <div class="section__head reveal">
           <div>
             <h2>Test de maturité cyber</h2>
-            <p class="sub">
-              Questionnaire confidentiel (identités, postes, sauvegardes, messagerie, accès distants, gouvernance).
-              Résultat immédiat avec recommandations.
-            </p>
+            <p class="sub">Questionnaire confidentiel (identités, postes, sauvegardes, messagerie, accès distants, gouvernance). Résultat immédiat avec recommandations.</p>
           </div>
           <div class="tiny">score • niveau • recommandations</div>
         </div>
-
         <div class="grid two">
           <form id="maturityForm" class="form reveal" autocomplete="off">
             <h3 class="card__title">Questionnaire</h3>
-
-            <p class="tiny" style="margin-top:6px">
-              Répondre selon la situation réelle. “Partiel” = en place mais incomplet / non généralisé / non vérifié.
-            </p>
-
-            <label>Organisation
-              <input name="org" type="text" placeholder="Nom de l’organisation (optionnel)" />
-            </label>
-
-            <label>Nombre d’utilisateurs
-              <input name="users" type="number" min="1" placeholder="ex : 12 (optionnel)" />
-            </label>
-
-            <div class="tiny" style="margin-top:8px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Identités & Accès</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">1) MFA (double authentification) sur messagerie et comptes administrateurs</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q1" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q1" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q1" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">2) Mots de passe : gestionnaire + règles (réutilisation, partage, complexité)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q2" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q2" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q2" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">3) Comptes partagés / comptes génériques</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q3" value="0" required> Majoritaires / non maîtrisés</label>
-                <label class="choice"><input type="radio" name="q3" value="2"> Quelques-uns</label>
-                <label class="choice"><input type="radio" name="q3" value="4"> Rare / maîtrisé</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Postes & Mises à jour</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">4) Postes à jour (OS + logiciels) avec routine claire</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q4" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q4" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q4" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">5) Antivirus/EDR et protections (au minimum Defender configuré)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q5" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q5" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q5" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Sauvegardes & Continuité</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">6) Sauvegardes : fréquence + séparation (3-2-1 ou équivalent)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q6" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q6" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q6" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">7) Tests de restauration (au moins semestriels)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q7" value="0" required> Jamais</label>
-                <label class="choice"><input type="radio" name="q7" value="2"> Rarement</label>
-                <label class="choice"><input type="radio" name="q7" value="4"> Régulièrement</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Messagerie & Fraudes</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">8) Protection anti-phishing (SPF/DKIM/DMARC, filtrage, alertes, bannières externe)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q8" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q8" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q8" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">9) Procédure “double validation” (paiements / changement IBAN / demandes urgentes)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q9" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q9" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q9" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Accès distants & Cloud</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q10" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q10" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q10" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q11" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q11" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q11" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Gouvernance & Réaction</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q12" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q12" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q12" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">13) Inventaire minimal : outils, admins, prestataires, données sensibles</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q13" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q13" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q13" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="q14" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="q14" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="q14" value="4"> Oui</label>
-              </div>
-            </div>
-
+            <p class="tiny" style="margin-top:6px">Répondre selon la situation réelle. "Partiel" = en place mais incomplet / non généralisé / non vérifié.</p>
+            <label>Organisation<input name="org" type="text" placeholder="Nom de l'organisation (optionnel)" /></label>
+            <label>Nombre d'utilisateurs<input name="users" type="number" min="1" placeholder="ex : 12 (optionnel)" /></label>
+            <div class="tiny" style="margin-top:8px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Identités &amp; Accès</b></div>
+            <div class="q"><div class="q__title">1) MFA (double authentification) sur messagerie et comptes administrateurs</div><div class="q__choices"><label class="choice"><input type="radio" name="q1" value="0" required> Non</label><label class="choice"><input type="radio" name="q1" value="2"> Partiel</label><label class="choice"><input type="radio" name="q1" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">2) Mots de passe : gestionnaire + règles (réutilisation, partage, complexité)</div><div class="q__choices"><label class="choice"><input type="radio" name="q2" value="0" required> Non</label><label class="choice"><input type="radio" name="q2" value="2"> Partiel</label><label class="choice"><input type="radio" name="q2" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">3) Comptes partagés / comptes génériques</div><div class="q__choices"><label class="choice"><input type="radio" name="q3" value="0" required> Majoritaires / non maîtrisés</label><label class="choice"><input type="radio" name="q3" value="2"> Quelques-uns</label><label class="choice"><input type="radio" name="q3" value="4"> Rare / maîtrisé</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Postes &amp; Mises à jour</b></div>
+            <div class="q"><div class="q__title">4) Postes à jour (OS + logiciels) avec routine claire</div><div class="q__choices"><label class="choice"><input type="radio" name="q4" value="0" required> Non</label><label class="choice"><input type="radio" name="q4" value="2"> Partiel</label><label class="choice"><input type="radio" name="q4" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">5) Antivirus/EDR et protections (au minimum Defender configuré)</div><div class="q__choices"><label class="choice"><input type="radio" name="q5" value="0" required> Non</label><label class="choice"><input type="radio" name="q5" value="2"> Partiel</label><label class="choice"><input type="radio" name="q5" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Sauvegardes &amp; Continuité</b></div>
+            <div class="q"><div class="q__title">6) Sauvegardes : fréquence + séparation (3-2-1 ou équivalent)</div><div class="q__choices"><label class="choice"><input type="radio" name="q6" value="0" required> Non</label><label class="choice"><input type="radio" name="q6" value="2"> Partiel</label><label class="choice"><input type="radio" name="q6" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">7) Tests de restauration (au moins semestriels)</div><div class="q__choices"><label class="choice"><input type="radio" name="q7" value="0" required> Jamais</label><label class="choice"><input type="radio" name="q7" value="2"> Rarement</label><label class="choice"><input type="radio" name="q7" value="4"> Régulièrement</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Messagerie &amp; Fraudes</b></div>
+            <div class="q"><div class="q__title">8) Protection anti-phishing (SPF/DKIM/DMARC, filtrage, alertes, bannières externe)</div><div class="q__choices"><label class="choice"><input type="radio" name="q8" value="0" required> Non</label><label class="choice"><input type="radio" name="q8" value="2"> Partiel</label><label class="choice"><input type="radio" name="q8" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">9) Procédure double validation (paiements / changement IBAN / demandes urgentes)</div><div class="q__choices"><label class="choice"><input type="radio" name="q9" value="0" required> Non</label><label class="choice"><input type="radio" name="q9" value="2"> Partiel</label><label class="choice"><input type="radio" name="q9" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Accès distants &amp; Cloud</b></div>
+            <div class="q"><div class="q__title">10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)</div><div class="q__choices"><label class="choice"><input type="radio" name="q10" value="0" required> Non</label><label class="choice"><input type="radio" name="q10" value="2"> Partiel</label><label class="choice"><input type="radio" name="q10" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits</div><div class="q__choices"><label class="choice"><input type="radio" name="q11" value="0" required> Non</label><label class="choice"><input type="radio" name="q11" value="2"> Partiel</label><label class="choice"><input type="radio" name="q11" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Gouvernance &amp; Réaction</b></div>
+            <div class="q"><div class="q__title">12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves</div><div class="q__choices"><label class="choice"><input type="radio" name="q12" value="0" required> Non</label><label class="choice"><input type="radio" name="q12" value="2"> Partiel</label><label class="choice"><input type="radio" name="q12" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">13) Inventaire minimal : outils, admins, prestataires, données sensibles</div><div class="q__choices"><label class="choice"><input type="radio" name="q13" value="0" required> Non</label><label class="choice"><input type="radio" name="q13" value="2"> Partiel</label><label class="choice"><input type="radio" name="q13" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)</div><div class="q__choices"><label class="choice"><input type="radio" name="q14" value="0" required> Non</label><label class="choice"><input type="radio" name="q14" value="2"> Partiel</label><label class="choice"><input type="radio" name="q14" value="4"> Oui</label></div></div>
             <div class="hero__actions" style="margin-top:14px">
               <button class="btn" type="submit">Calculer le score</button>
               <button class="btn btn--ghost" type="button" id="maturityReset">Réinitialiser</button>
             </div>
-
-            <p class="tiny" style="margin-top:10px;">
-              Ce test donne une indication de maturité (pas un audit). Les résultats servent à prioriser des actions.
-            </p>
+            <p class="tiny" style="margin-top:10px;">Ce test donne une indication de maturité (pas un audit). Les résultats servent à prioriser des actions.</p>
           </form>
-
           <aside class="card reveal" aria-live="polite">
             <h3 class="card__title">Résultat</h3>
-
-            <div id="maturityEmpty" class="muted">
-              Remplir le questionnaire puis cliquer sur “Calculer le score”.
-            </div>
-
+            <div id="maturityEmpty" class="muted">Remplir le questionnaire puis cliquer sur "Calculer le score".</div>
             <div id="maturityResult" style="display:none;">
-              <div class="badge" style="margin-bottom:10px;">
-                <i></i><span id="maturityLevel">—</span>
-              </div>
-
+              <div class="badge" style="margin-bottom:10px;"><i></i><span id="maturityLevel">—</span></div>
               <div class="mini-grid" style="margin-top:0;">
-                <div class="mini-card">
-                  <b>Score</b>
-                  <p><span id="maturityScore">0</span> / <span id="maturityMax">56</span></p>
-                </div>
-                <div class="mini-card">
-                  <b>Priorité</b>
-                  <p id="maturityPriority">—</p>
-                </div>
+                <div class="mini-card"><b>Score</b><p><span id="maturityScore">0</span> / <span id="maturityMax">56</span></p></div>
+                <div class="mini-card"><b>Priorité</b><p id="maturityPriority">—</p></div>
               </div>
-
               <div style="margin-top:14px;">
                 <b style="display:block; font-weight:900; margin-bottom:8px;">Recommandations immédiates</b>
                 <ul class="list" id="maturityRecs"></ul>
               </div>
-
               <div class="form" style="margin-top:16px;">
                 <h3 class="card__title">Recevoir le résultat</h3>
-                <p class="tiny" style="margin-top:6px;">
-                  Envoi du score + recommandations.
-                </p>
-
-                <!-- RGPD -->
-                <p class="tiny" style="margin-top:10px;">
-                  En cliquant sur “Envoyer le résultat”, vous acceptez l’envoi de votre score, recommandations et réponses au questionnaire à l’adresse indiquée,
-                  via notre prestataire de formulaire. Droits RGPD : <a href="/confidentialite.html">politique de confidentialité</a>.
-                </p>
-
-                <label>Email de contact
-                  <input id="maturityEmail" type="email" placeholder="nom@entreprise.com" />
-                </label>
-
+                <p class="tiny" style="margin-top:6px;">Envoi du score + recommandations.</p>
+                <p class="tiny" style="margin-top:10px;">En cliquant sur "Envoyer le résultat", vous acceptez l'envoi de votre score, recommandations et réponses au questionnaire à l'adresse indiquée, via notre prestataire de formulaire. Droits RGPD : <a href="/confidentialite.html">politique de confidentialité</a>.</p>
+                <label>Email de contact<input id="maturityEmail" type="email" placeholder="nom@entreprise.com" /></label>
                 <button class="btn" type="button" id="maturitySend">Envoyer le résultat</button>
                 <p class="tiny" id="maturitySendStatus" style="margin-top:10px;"></p>
               </div>
@@ -1118,190 +674,54 @@
         <div class="section__head reveal">
           <div>
             <h2>Test de souveraineté</h2>
-            <p class="sub">
-              Questionnaire “dépendances & réversibilité” (données, fournisseurs, contrats, export, clés, bascule).
-              Résultat immédiat avec recommandations.
-            </p>
+            <p class="sub">Questionnaire "dépendances &amp; réversibilité" (données, fournisseurs, contrats, export, clés, bascule). Résultat immédiat avec recommandations.</p>
           </div>
           <div class="tiny">score • niveau • réversibilité</div>
         </div>
-
         <div class="grid two">
           <form id="sovereigntyForm" class="form reveal" autocomplete="off">
             <h3 class="card__title">Questionnaire</h3>
-
-            <p class="tiny" style="margin-top:6px">
-              Répondre selon la situation réelle. “Partiel” = en place mais incomplet / non testé / non documenté.
-            </p>
-
-            <label>Organisation
-              <input name="org" type="text" placeholder="Nom de l’organisation (optionnel)" />
-            </label>
-
-            <label>Outil / périmètre (optionnel)
-              <input name="scope" type="text" placeholder="ex : Messagerie, Drive, ERP, CRM…" />
-            </label>
-
-            <div class="tiny" style="margin-top:8px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Données & juridictions</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">1) Localisation des données connue et maîtrisée (pays / région / contractualisation)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s1" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s1" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s1" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">2) Cadre légal & accès tiers évalués (sous-traitants, autorités, transferts)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s2" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s2" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s2" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Réversibilité & exports</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">3) Export des données possible dans un format exploitable (CSV, MBOX, ICS, etc.)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s3" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s3" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s3" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">4) Test d’export/import déjà réalisé (preuve de réversibilité)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s4" value="0" required> Jamais</label>
-                <label class="choice"><input type="radio" name="s4" value="2"> Rarement</label>
-                <label class="choice"><input type="radio" name="s4" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Contrats, dépendances, bascule</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">5) Clauses contractuelles claires (SLA, réversibilité, fin de contrat, délais)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s5" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s5" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s5" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">6) Dépendances cartographiées (fournisseurs, API, SSO, intégrations, tokens)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s6" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s6" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s6" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">7) Plan de bascule / alternative identifiée (scénario réaliste, ordre d’exécution)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s7" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s7" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s7" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;">
-              <b>Sécurité des accès & clés</b>
-            </div>
-
-            <div class="q">
-              <div class="q__title">8) Maîtrise des clés / chiffrement (KMS, BYOK/HYOK ou équivalent, selon le contexte)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s8" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s8" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s8" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">9) Administration & logs : accès admin limités + journalisation exploitable</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s9" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s9" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s9" value="4"> Oui</label>
-              </div>
-            </div>
-
-            <div class="q">
-              <div class="q__title">10) Portabilité des identités : annuaire/SSO non verrouillant (ou stratégie de sortie)</div>
-              <div class="q__choices">
-                <label class="choice"><input type="radio" name="s10" value="0" required> Non</label>
-                <label class="choice"><input type="radio" name="s10" value="2"> Partiel</label>
-                <label class="choice"><input type="radio" name="s10" value="4"> Oui</label>
-              </div>
-            </div>
-
+            <p class="tiny" style="margin-top:6px">Répondre selon la situation réelle. "Partiel" = en place mais incomplet / non testé / non documenté.</p>
+            <label>Organisation<input name="org" type="text" placeholder="Nom de l'organisation (optionnel)" /></label>
+            <label>Outil / périmètre (optionnel)<input name="scope" type="text" placeholder="ex : Messagerie, Drive, ERP, CRM…" /></label>
+            <div class="tiny" style="margin-top:8px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Données &amp; juridictions</b></div>
+            <div class="q"><div class="q__title">1) Localisation des données connue et maîtrisée (pays / région / contractualisation)</div><div class="q__choices"><label class="choice"><input type="radio" name="s1" value="0" required> Non</label><label class="choice"><input type="radio" name="s1" value="2"> Partiel</label><label class="choice"><input type="radio" name="s1" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">2) Cadre légal &amp; accès tiers évalués (sous-traitants, autorités, transferts)</div><div class="q__choices"><label class="choice"><input type="radio" name="s2" value="0" required> Non</label><label class="choice"><input type="radio" name="s2" value="2"> Partiel</label><label class="choice"><input type="radio" name="s2" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Réversibilité &amp; exports</b></div>
+            <div class="q"><div class="q__title">3) Export des données possible dans un format exploitable (CSV, MBOX, ICS, etc.)</div><div class="q__choices"><label class="choice"><input type="radio" name="s3" value="0" required> Non</label><label class="choice"><input type="radio" name="s3" value="2"> Partiel</label><label class="choice"><input type="radio" name="s3" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">4) Test d'export/import déjà réalisé (preuve de réversibilité)</div><div class="q__choices"><label class="choice"><input type="radio" name="s4" value="0" required> Jamais</label><label class="choice"><input type="radio" name="s4" value="2"> Rarement</label><label class="choice"><input type="radio" name="s4" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Contrats, dépendances, bascule</b></div>
+            <div class="q"><div class="q__title">5) Clauses contractuelles claires (SLA, réversibilité, fin de contrat, délais)</div><div class="q__choices"><label class="choice"><input type="radio" name="s5" value="0" required> Non</label><label class="choice"><input type="radio" name="s5" value="2"> Partiel</label><label class="choice"><input type="radio" name="s5" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">6) Dépendances cartographiées (fournisseurs, API, SSO, intégrations, tokens)</div><div class="q__choices"><label class="choice"><input type="radio" name="s6" value="0" required> Non</label><label class="choice"><input type="radio" name="s6" value="2"> Partiel</label><label class="choice"><input type="radio" name="s6" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">7) Plan de bascule / alternative identifiée (scénario réaliste, ordre d'exécution)</div><div class="q__choices"><label class="choice"><input type="radio" name="s7" value="0" required> Non</label><label class="choice"><input type="radio" name="s7" value="2"> Partiel</label><label class="choice"><input type="radio" name="s7" value="4"> Oui</label></div></div>
+            <div class="tiny" style="margin-top:14px; border-top:1px solid rgba(255,255,255,.10); padding-top:12px;"><b>Sécurité des accès &amp; clés</b></div>
+            <div class="q"><div class="q__title">8) Maîtrise des clés / chiffrement (KMS, BYOK/HYOK ou équivalent, selon le contexte)</div><div class="q__choices"><label class="choice"><input type="radio" name="s8" value="0" required> Non</label><label class="choice"><input type="radio" name="s8" value="2"> Partiel</label><label class="choice"><input type="radio" name="s8" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">9) Administration &amp; logs : accès admin limités + journalisation exploitable</div><div class="q__choices"><label class="choice"><input type="radio" name="s9" value="0" required> Non</label><label class="choice"><input type="radio" name="s9" value="2"> Partiel</label><label class="choice"><input type="radio" name="s9" value="4"> Oui</label></div></div>
+            <div class="q"><div class="q__title">10) Portabilité des identités : annuaire/SSO non verrouillant (ou stratégie de sortie)</div><div class="q__choices"><label class="choice"><input type="radio" name="s10" value="0" required> Non</label><label class="choice"><input type="radio" name="s10" value="2"> Partiel</label><label class="choice"><input type="radio" name="s10" value="4"> Oui</label></div></div>
             <div class="hero__actions" style="margin-top:14px">
               <button class="btn" type="submit">Calculer le score</button>
               <button class="btn btn--ghost" type="button" id="sovereigntyReset">Réinitialiser</button>
             </div>
-
-            <p class="tiny" style="margin-top:10px;">
-              Ce test donne une indication de dépendance/réversibilité (pas un audit). Les résultats servent à prioriser des actions.
-            </p>
+            <p class="tiny" style="margin-top:10px;">Ce test donne une indication de dépendance/réversibilité (pas un audit). Les résultats servent à prioriser des actions.</p>
           </form>
-
           <aside class="card reveal" aria-live="polite">
             <h3 class="card__title">Résultat</h3>
-
-            <div id="sovereigntyEmpty" class="muted">
-              Remplir le questionnaire puis cliquer sur “Calculer le score”.
-            </div>
-
+            <div id="sovereigntyEmpty" class="muted">Remplir le questionnaire puis cliquer sur "Calculer le score".</div>
             <div id="sovereigntyResult" style="display:none;">
-              <div class="badge" style="margin-bottom:10px;">
-                <i></i><span id="sovereigntyLevel">—</span>
-              </div>
-
+              <div class="badge" style="margin-bottom:10px;"><i></i><span id="sovereigntyLevel">—</span></div>
               <div class="mini-grid" style="margin-top:0;">
-                <div class="mini-card">
-                  <b>Score</b>
-                  <p><span id="sovereigntyScore">0</span> / <span id="sovereigntyMax">40</span></p>
-                </div>
-                <div class="mini-card">
-                  <b>Priorité</b>
-                  <p id="sovereigntyPriority">—</p>
-                </div>
+                <div class="mini-card"><b>Score</b><p><span id="sovereigntyScore">0</span> / <span id="sovereigntyMax">40</span></p></div>
+                <div class="mini-card"><b>Priorité</b><p id="sovereigntyPriority">—</p></div>
               </div>
-
               <div style="margin-top:14px;">
                 <b style="display:block; font-weight:900; margin-bottom:8px;">Recommandations immédiates</b>
                 <ul class="list" id="sovereigntyRecs"></ul>
               </div>
-
               <div class="form" style="margin-top:16px;">
                 <h3 class="card__title">Recevoir le résultat</h3>
-                <p class="tiny" style="margin-top:6px;">
-                  Envoi du score + recommandations.
-                </p>
-
-                <!-- RGPD -->
-                <p class="tiny" style="margin-top:10px;">
-                  En cliquant sur “Envoyer le résultat”, vous acceptez l’envoi de votre score, recommandations et réponses au questionnaire à l’adresse indiquée,
-                  via notre prestataire de formulaire. Droits RGPD : <a href="/confidentialite.html">politique de confidentialité</a>.
-                </p>
-
-                <label>Email de contact
-                  <input id="sovereigntyEmail" type="email" placeholder="nom@organisation.com" />
-                </label>
-
+                <p class="tiny" style="margin-top:6px;">Envoi du score + recommandations.</p>
+                <p class="tiny" style="margin-top:10px;">En cliquant sur "Envoyer le résultat", vous acceptez l'envoi de votre score, recommandations et réponses au questionnaire à l'adresse indiquée, via notre prestataire de formulaire. Droits RGPD : <a href="/confidentialite.html">politique de confidentialité</a>.</p>
+                <label>Email de contact<input id="sovereigntyEmail" type="email" placeholder="nom@organisation.com" /></label>
                 <button class="btn" type="button" id="sovereigntySend">Envoyer le résultat</button>
                 <p class="tiny" id="sovereigntySendStatus" style="margin-top:10px;"></p>
               </div>
@@ -1321,7 +741,6 @@
           </div>
           <div class="tiny">périmètre • outils • priorité</div>
         </div>
-
         <div class="grid two">
           <div class="card reveal">
             <h3 class="card__title">Informations</h3>
@@ -1330,40 +749,16 @@
               Téléphone : 06 21 48 06 59<br/>
               Zone : France
             </p>
-            <p class="tiny" style="margin-top:10px;">
-              Éléments utiles : liste des outils (messagerie, stockage, suite bureautique, accès distants), nombre d’utilisateurs,
-              présence du MFA, pratiques de sauvegarde, incidents observés.
-            </p>
+            <p class="tiny" style="margin-top:10px;">Éléments utiles : liste des outils (messagerie, stockage, suite bureautique, accès distants), nombre d'utilisateurs, présence du MFA, pratiques de sauvegarde, incidents observés.</p>
           </div>
-
           <form class="form reveal" action="https://formspree.io/f/xzddekwq" method="POST">
             <h3 class="card__title">Message</h3>
-
-            <label>Nom
-              <input name="nom" type="text" autocomplete="name" required />
-            </label>
-
-            <label>Email
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-
-            <label>Organisation (optionnel)
-              <input name="organisation" type="text" autocomplete="organization" />
-            </label>
-
-            <label>Message
-              <textarea name="message" rows="6" required></textarea>
-            </label>
-
+            <label>Nom<input name="nom" type="text" autocomplete="name" required /></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+            <label>Organisation (optionnel)<input name="organisation" type="text" autocomplete="organization" /></label>
+            <label>Message<textarea name="message" rows="6" required></textarea></label>
             <button class="btn" type="submit">Envoyer</button>
-
-            <!-- RGPD -->
-            <p class="tiny" style="margin-top:10px;">
-              Les informations transmises via ce formulaire sont utilisées uniquement pour traiter votre demande et vous recontacter.
-              Elles sont envoyées via notre prestataire de formulaire. Vous pouvez exercer vos droits (accès, rectification, suppression, opposition)
-              en écrivant à <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a>.
-              <a href="/confidentialite.html">En savoir plus</a>.
-            </p>
+            <p class="tiny" style="margin-top:10px;">Les informations transmises via ce formulaire sont utilisées uniquement pour traiter votre demande et vous recontacter. Elles sont envoyées via notre prestataire de formulaire. Vous pouvez exercer vos droits (accès, rectification, suppression, opposition) en écrivant à <a href="mailto:contact@novia-secure.com">contact@novia-secure.com</a>. <a href="/confidentialite.html">En savoir plus</a>.</p>
           </form>
         </div>
       </div>
@@ -1387,7 +782,6 @@
 
   <script>
     (() => {
-      // Mobile menu
       const toggle = document.querySelector(".nav__toggle");
       const nav = document.querySelector(".nav");
       if (toggle && nav) {
@@ -1405,21 +799,18 @@
         });
       }
 
-      // Year
       const year = document.getElementById("year");
       if (year) year.textContent = String(new Date().getFullYear());
 
-      // Reveal
       const els = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("is-visible"); });
       }, { threshold: 0.08 });
       els.forEach(el => io.observe(el));
 
-      // Send to Formspree (replace ENDPOINT)
-      const ENDPOINT = "https://formspree.io/f/xzddekwq"; // <-- remplace par TON endpoint dédié si tu veux
+      const ENDPOINT = "https://formspree.io/f/xzddekwq";
 
-      // === MATURITY QUIZ LOGIC ===
+      // === MATURITY QUIZ ===
       const form = document.getElementById("maturityForm");
       const empty = document.getElementById("maturityEmpty");
       const resBox = document.getElementById("maturityResult");
@@ -1429,75 +820,61 @@
       const priorityEl = document.getElementById("maturityPriority");
       const recsEl = document.getElementById("maturityRecs");
       const resetBtn = document.getElementById("maturityReset");
-
       const emailInput = document.getElementById("maturityEmail");
       const sendBtn = document.getElementById("maturitySend");
       const sendStatus = document.getElementById("maturitySendStatus");
-
-      const MAX = 14 * 4; // 14 questions, 0/2/4
+      const MAX = 14 * 4;
       if (maxEl) maxEl.textContent = String(MAX);
 
-      function levelFor(scorePct){
+      function levelFor(scorePct) {
         if (scorePct < 30) return { name: "Niveau 1 — Initial", priority: "Urgent (fondations)" };
         if (scorePct < 55) return { name: "Niveau 2 — Basique", priority: "Élevée (standardiser)" };
         if (scorePct < 75) return { name: "Niveau 3 — Intermédiaire", priority: "Modérée (consolider)" };
         return { name: "Niveau 4 — Avancé", priority: "Optimisation (durcir)" };
       }
 
-      function recsFromAnswers(values){
+      function recsFromAnswers(values) {
         const recs = [];
         const v = (k) => Number(values.get(k) || 0);
-
         if (v("q1") < 4) recs.push("Activer le MFA sur la messagerie et tous les comptes administrateurs (priorité).");
         if (v("q2") < 4) recs.push("Déployer un gestionnaire de mots de passe et interdire la réutilisation/partage.");
         if (v("q3") < 4) recs.push("Réduire les comptes partagés : privilégier des comptes nominatifs + boîtes partagées.");
-        if (v("q4") < 4) recs.push("Mettre en place une routine de mises à jour (OS + logiciels) et vérifier l’application.");
+        if (v("q4") < 4) recs.push("Mettre en place une routine de mises à jour (OS + logiciels) et vérifier l'application.");
         if (v("q5") < 4) recs.push("Vérifier la protection endpoint (Defender/EDR) et durcir les paramètres.");
         if (v("q6") < 4) recs.push("Structurer des sauvegardes séparées (3-2-1) avec copie hors ligne/immutabilité.");
         if (v("q7") < 4) recs.push("Tester la restauration (fichiers + applis critiques) et consigner les résultats.");
         if (v("q8") < 4) recs.push("Renforcer la messagerie : SPF/DKIM/DMARC + règles anti-phishing + alertes.");
-        if (v("q9") < 4) recs.push("Instaurer une double validation pour paiements / changement d’IBAN / urgences.");
-        if (v("q10") < 4) recs.push("Sécuriser l’accès distant : MFA, restrictions IP, comptes dédiés, logs.");
+        if (v("q9") < 4) recs.push("Instaurer une double validation pour paiements / changement d'IBAN / urgences.");
+        if (v("q10") < 4) recs.push("Sécuriser l'accès distant : MFA, restrictions IP, comptes dédiés, logs.");
         if (v("q11") < 4) recs.push("Revoir les partages cloud : limiter les liens publics et auditer les invités.");
         if (v("q12") < 4) recs.push("Formaliser un plan incident simple (qui fait quoi, contacts, isolement, preuves).");
         if (v("q13") < 4) recs.push("Créer un inventaire minimal (outils, admins, prestataires, données sensibles).");
         if (v("q14") < 4) recs.push("Planifier une sensibilisation annuelle + rappels (phishing, fraude, IA, partage).");
-
         if (recs.length === 0) {
           recs.push("Bon niveau global : réaliser une revue trimestrielle des accès/admins et un test phishing interne.");
           recs.push("Optimiser la supervision : journaux clés, alertes, revue des règles de messagerie.");
         }
-
         return recs;
       }
 
-      function renderResult(score, recs){
+      function renderResult(score, recs) {
         const pct = Math.round((score / MAX) * 100);
         const lvl = levelFor(pct);
-
         if (empty) empty.style.display = "none";
         if (resBox) resBox.style.display = "block";
-
         if (levelEl) levelEl.textContent = `${lvl.name} (${pct}%)`;
         if (scoreEl) scoreEl.textContent = String(score);
         if (priorityEl) priorityEl.textContent = lvl.priority;
-
         if (recsEl) {
           recsEl.innerHTML = "";
-          recs.forEach(r => {
-            const li = document.createElement("li");
-            li.textContent = r;
-            recsEl.appendChild(li);
-          });
+          recs.forEach(r => { const li = document.createElement("li"); li.textContent = r; recsEl.appendChild(li); });
         }
       }
 
-      function compute(){
+      function compute() {
         const values = new FormData(form);
         let score = 0;
-        for (let i = 1; i <= 14; i++){
-          score += Number(values.get("q"+i) || 0);
-        }
+        for (let i = 1; i <= 14; i++) score += Number(values.get("q" + i) || 0);
         const recs = recsFromAnswers(values);
         renderResult(score, recs);
         return { score, recs, values };
@@ -1507,7 +884,6 @@
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           compute();
-          // scroll vers résultat sur mobile
           const target = document.getElementById("maturityResult");
           if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
@@ -1522,21 +898,13 @@
         });
       }
 
-      // Send maturity result
-      async function sendResult(){
+      async function sendResult() {
         if (!form) return;
         const { score, recs, values } = compute();
-
         const org = String(values.get("org") || "").trim();
         const users = String(values.get("users") || "").trim();
         const email = (emailInput?.value || "").trim();
-
-        if (!email) {
-          if (sendStatus) sendStatus.textContent = "Merci de saisir un email avant l’envoi.";
-          return;
-        }
-
-        // --- CAPTURE DE TOUTES LES RÉPONSES (Q1→Q14) ---
+        if (!email) { if (sendStatus) sendStatus.textContent = "Merci de saisir un email avant l'envoi."; return; }
         const labels = {
           q1: "1) MFA (double authentification) sur messagerie et comptes administrateurs",
           q2: "2) Mots de passe : gestionnaire + règles (réutilisation, partage, complexité)",
@@ -1546,72 +914,35 @@
           q6: "6) Sauvegardes : fréquence + séparation (3-2-1 ou équivalent)",
           q7: "7) Tests de restauration (au moins semestriels)",
           q8: "8) Protection anti-phishing (SPF/DKIM/DMARC, filtrage, alertes, bannières externe)",
-          q9: "9) Procédure “double validation” (paiements / changement IBAN / demandes urgentes)",
-          q10:"10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)",
-          q11:"11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits",
-          q12:"12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves",
-          q13:"13) Inventaire minimal : outils, admins, prestataires, données sensibles",
-          q14:"14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)"
+          q9: "9) Procédure double validation (paiements / changement IBAN / demandes urgentes)",
+          q10: "10) Accès distants (VPN/portails) sécurisés (MFA, restrictions, logs)",
+          q11: "11) Partage de fichiers : liens publics limités, invités contrôlés, revue des droits",
+          q12: "12) Gestion des incidents : plan simple, rôles, contacts, réflexes, preuves",
+          q13: "13) Inventaire minimal : outils, admins, prestataires, données sensibles",
+          q14: "14) Sensibilisation : au moins 1 action/an + rappels (phishing, fraude, IA, partage)"
         };
-
         const mapValue = (q, val) => {
           const n = Number(val || 0);
-          if (q === "q3") {
-            if (n === 0) return "Majoritaires / non maîtrisés (0)";
-            if (n === 2) return "Quelques-uns (2)";
-            return "Rare / maîtrisé (4)";
-          }
-          if (q === "q7") {
-            if (n === 0) return "Jamais (0)";
-            if (n === 2) return "Rarement (2)";
-            return "Régulièrement (4)";
-          }
+          if (q === "q3") { if (n === 0) return "Majoritaires / non maîtrisés (0)"; if (n === 2) return "Quelques-uns (2)"; return "Rare / maîtrisé (4)"; }
+          if (q === "q7") { if (n === 0) return "Jamais (0)"; if (n === 2) return "Rarement (2)"; return "Régulièrement (4)"; }
           return n === 0 ? "Non (0)" : (n === 2 ? "Partiel (2)" : "Oui (4)");
         };
-
-        const answers = {};
-        let answersText = "";
+        const answers = {}; let answersText = "";
         for (let i = 1; i <= 14; i++) {
-          const key = "q" + i;
-          const raw = values.get(key);
-          const pretty = mapValue(key, raw);
+          const key = "q" + i; const raw = values.get(key); const pretty = mapValue(key, raw);
           answers[key] = { label: labels[key], raw: raw ?? null, value: pretty };
           answersText += `${labels[key]} : ${pretty}\n`;
         }
-        // --- FIN CAPTURE ---
-
-        const payload = {
-          type: "maturity_test",
-          organisation: org || "(non renseignée)",
-          users: users || "(non renseigné)",
-          contact_email: email,
-          score: `${score}/${MAX}`,
-          recommendations: recs.join(" | "),
-          answers: answers,
-          answers_text: answersText,
-          date: new Date().toISOString(),
-        };
-
-        try{
+        const payload = { type: "maturity_test", organisation: org || "(non renseignée)", users: users || "(non renseigné)", contact_email: email, score: `${score}/${MAX}`, recommendations: recs.join(" | "), answers, answers_text: answersText, date: new Date().toISOString() };
+        try {
           if (sendStatus) sendStatus.textContent = "Envoi en cours…";
-          const r = await fetch(ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (r.ok) {
-            if (sendStatus) sendStatus.textContent = "Résultat envoyé ✅";
-          } else {
-            if (sendStatus) sendStatus.textContent = "Erreur d’envoi (endpoint/Formspree).";
-          }
-        } catch(err){
-          if (sendStatus) sendStatus.textContent = "Erreur réseau lors de l’envoi.";
-        }
+          const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) });
+          if (sendStatus) sendStatus.textContent = r.ok ? "Résultat envoyé ✅" : "Erreur d'envoi (endpoint/Formspree).";
+        } catch (err) { if (sendStatus) sendStatus.textContent = "Erreur réseau lors de l'envoi."; }
       }
-
       if (sendBtn) sendBtn.addEventListener("click", sendResult);
 
-      // === SOVEREIGNTY QUIZ LOGIC ===
+      // === SOVEREIGNTY QUIZ ===
       const sForm = document.getElementById("sovereigntyForm");
       const sEmpty = document.getElementById("sovereigntyEmpty");
       const sResBox = document.getElementById("sovereigntyResult");
@@ -1621,36 +952,32 @@
       const sPriorityEl = document.getElementById("sovereigntyPriority");
       const sRecsEl = document.getElementById("sovereigntyRecs");
       const sResetBtn = document.getElementById("sovereigntyReset");
-
       const sEmailInput = document.getElementById("sovereigntyEmail");
       const sSendBtn = document.getElementById("sovereigntySend");
       const sSendStatus = document.getElementById("sovereigntySendStatus");
-
-      const S_MAX = 10 * 4; // 10 questions, 0/2/4
+      const S_MAX = 10 * 4;
       if (sMaxEl) sMaxEl.textContent = String(S_MAX);
 
-      function sLevelFor(scorePct){
+      function sLevelFor(scorePct) {
         if (scorePct < 30) return { name: "Niveau 1 — Dépendance forte", priority: "Urgent (réversibilité)" };
         if (scorePct < 55) return { name: "Niveau 2 — Dépendance élevée", priority: "Élevée (clarifier/contracter)" };
         if (scorePct < 75) return { name: "Niveau 3 — Maîtrise intermédiaire", priority: "Modérée (tester/basculer)" };
         return { name: "Niveau 4 — Maîtrise avancée", priority: "Optimisation (durcir)" };
       }
 
-      function sRecsFromAnswers(values){
+      function sRecsFromAnswers(values) {
         const recs = [];
         const v = (k) => Number(values.get(k) || 0);
-
         if (v("s1") < 4) recs.push("Documenter et contractualiser la localisation des données (pays/région) + options de résidence.");
-        if (v("s2") < 4) recs.push("Évaluer le cadre légal et les accès tiers (sous-traitants, transferts, demandes d’accès).");
+        if (v("s2") < 4) recs.push("Évaluer le cadre légal et les accès tiers (sous-traitants, transferts, demandes d'accès).");
         if (v("s3") < 4) recs.push("Mettre en place un export standard (formats exploitables) pour les données critiques.");
-        if (v("s4") < 4) recs.push("Réaliser un test d’export/import (preuve de réversibilité) et conserver les preuves.");
+        if (v("s4") < 4) recs.push("Réaliser un test d'export/import (preuve de réversibilité) et conserver les preuves.");
         if (v("s5") < 4) recs.push("Clarifier les clauses : SLA, réversibilité, fin de contrat, délais, coûts de sortie.");
         if (v("s6") < 4) recs.push("Cartographier les dépendances (API, SSO, intégrations, tokens, fournisseurs) et points de rupture.");
-        if (v("s7") < 4) recs.push("Définir un plan de bascule réaliste (ordre d’exécution, responsabilités, RTO/RPO).");
+        if (v("s7") < 4) recs.push("Définir un plan de bascule réaliste (ordre d'exécution, responsabilités, RTO/RPO).");
         if (v("s8") < 4) recs.push("Renforcer la maîtrise des clés (KMS/BYOK/HYOK selon contexte) et les procédures associées.");
         if (v("s9") < 4) recs.push("Limiter les accès admin et activer une journalisation exploitable (revue périodique).");
         if (v("s10") < 4) recs.push("Sécuriser la portabilité des identités (stratégie de sortie SSO/annuaire).");
-
         if (recs.length === 0) {
           recs.push("Bon niveau : maintenir un test annuel de réversibilité + revue trimestrielle des dépendances.");
           recs.push("Optimiser : scénarios de bascule par service critique + budget de sortie maîtrisé.");
@@ -1658,33 +985,24 @@
         return recs;
       }
 
-      function sRenderResult(score, recs){
+      function sRenderResult(score, recs) {
         const pct = Math.round((score / S_MAX) * 100);
         const lvl = sLevelFor(pct);
-
         if (sEmpty) sEmpty.style.display = "none";
         if (sResBox) sResBox.style.display = "block";
-
         if (sLevelEl) sLevelEl.textContent = `${lvl.name} (${pct}%)`;
         if (sScoreEl) sScoreEl.textContent = String(score);
         if (sPriorityEl) sPriorityEl.textContent = lvl.priority;
-
         if (sRecsEl) {
           sRecsEl.innerHTML = "";
-          recs.forEach(r => {
-            const li = document.createElement("li");
-            li.textContent = r;
-            sRecsEl.appendChild(li);
-          });
+          recs.forEach(r => { const li = document.createElement("li"); li.textContent = r; sRecsEl.appendChild(li); });
         }
       }
 
-      function sCompute(){
+      function sCompute() {
         const values = new FormData(sForm);
         let score = 0;
-        for (let i = 1; i <= 10; i++){
-          score += Number(values.get("s"+i) || 0);
-        }
+        for (let i = 1; i <= 10; i++) score += Number(values.get("s" + i) || 0);
         const recs = sRecsFromAnswers(values);
         sRenderResult(score, recs);
         return { score, recs, values };
@@ -1708,81 +1026,43 @@
         });
       }
 
-      async function sSendResult(){
+      async function sSendResult() {
         if (!sForm) return;
         const { score, recs, values } = sCompute();
-
         const org = String(values.get("org") || "").trim();
         const scope = String(values.get("scope") || "").trim();
         const email = (sEmailInput?.value || "").trim();
-
-        if (!email) {
-          if (sSendStatus) sSendStatus.textContent = "Merci de saisir un email avant l’envoi.";
-          return;
-        }
-
+        if (!email) { if (sSendStatus) sSendStatus.textContent = "Merci de saisir un email avant l'envoi."; return; }
         const labels = {
           s1: "1) Localisation des données connue et maîtrisée (pays / région / contractualisation)",
-          s2: "2) Cadre légal & accès tiers évalués (sous-traitants, autorités, transferts)",
+          s2: "2) Cadre légal et accès tiers évalués (sous-traitants, autorités, transferts)",
           s3: "3) Export des données possible dans un format exploitable (CSV, MBOX, ICS, etc.)",
-          s4: "4) Test d’export/import déjà réalisé (preuve de réversibilité)",
+          s4: "4) Test d'export/import déjà réalisé (preuve de réversibilité)",
           s5: "5) Clauses contractuelles claires (SLA, réversibilité, fin de contrat, délais)",
           s6: "6) Dépendances cartographiées (fournisseurs, API, SSO, intégrations, tokens)",
-          s7: "7) Plan de bascule / alternative identifiée (scénario réaliste, ordre d’exécution)",
+          s7: "7) Plan de bascule / alternative identifiée (scénario réaliste, ordre d'exécution)",
           s8: "8) Maîtrise des clés / chiffrement (KMS, BYOK/HYOK ou équivalent, selon le contexte)",
-          s9: "9) Administration & logs : accès admin limités + journalisation exploitable",
-          s10:"10) Portabilité des identités : annuaire/SSO non verrouillant (ou stratégie de sortie)"
+          s9: "9) Administration et logs : accès admin limités + journalisation exploitable",
+          s10: "10) Portabilité des identités : annuaire/SSO non verrouillant (ou stratégie de sortie)"
         };
-
         const mapValue = (q, val) => {
           const n = Number(val || 0);
-          if (q === "s4") {
-            if (n === 0) return "Jamais (0)";
-            if (n === 2) return "Rarement (2)";
-            return "Oui (4)";
-          }
+          if (q === "s4") { if (n === 0) return "Jamais (0)"; if (n === 2) return "Rarement (2)"; return "Oui (4)"; }
           return n === 0 ? "Non (0)" : (n === 2 ? "Partiel (2)" : "Oui (4)");
         };
-
-        const answers = {};
-        let answersText = "";
+        const answers = {}; let answersText = "";
         for (let i = 1; i <= 10; i++) {
-          const key = "s" + i;
-          const raw = values.get(key);
-          const pretty = mapValue(key, raw);
+          const key = "s" + i; const raw = values.get(key); const pretty = mapValue(key, raw);
           answers[key] = { label: labels[key], raw: raw ?? null, value: pretty };
           answersText += `${labels[key]} : ${pretty}\n`;
         }
-
-        const payload = {
-          type: "sovereignty_test",
-          organisation: org || "(non renseignée)",
-          scope: scope || "(non renseigné)",
-          contact_email: email,
-          score: `${score}/${S_MAX}`,
-          recommendations: recs.join(" | "),
-          answers: answers,
-          answers_text: answersText,
-          date: new Date().toISOString(),
-        };
-
-        try{
+        const payload = { type: "sovereignty_test", organisation: org || "(non renseignée)", scope: scope || "(non renseigné)", contact_email: email, score: `${score}/${S_MAX}`, recommendations: recs.join(" | "), answers, answers_text: answersText, date: new Date().toISOString() };
+        try {
           if (sSendStatus) sSendStatus.textContent = "Envoi en cours…";
-          const r = await fetch(ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (r.ok) {
-            if (sSendStatus) sSendStatus.textContent = "Résultat envoyé ✅";
-          } else {
-            if (sSendStatus) sSendStatus.textContent = "Erreur d’envoi (endpoint/Formspree).";
-          }
-        } catch(err){
-          if (sSendStatus) sSendStatus.textContent = "Erreur réseau lors de l’envoi.";
-        }
+          const r = await fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) });
+          if (sSendStatus) sSendStatus.textContent = r.ok ? "Résultat envoyé ✅" : "Erreur d'envoi (endpoint/Formspree).";
+        } catch (err) { if (sSendStatus) sSendStatus.textContent = "Erreur réseau lors de l'envoi."; }
       }
-
       if (sSendBtn) sSendBtn.addEventListener("click", sSendResult);
 
     })();
